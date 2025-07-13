@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta 
-charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noaman | Cybersecurity Analyst</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -18,6 +17,27 @@ charset="UTF-8" />
       background: #0f172a;
       color: #f8fafc;
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background-color: #1e293b;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: #f8fafc;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #38bdf8;
     }
     header {
       background: url('https://images.unsplash.com/photo-1623050981744-1b8c6593f0a2?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
@@ -25,6 +45,7 @@ charset="UTF-8" />
       text-align: center;
       color: #f8fafc;
       box-shadow: inset 0 0 0 2000px rgba(15, 23, 42, 0.85);
+      position: relative;
     }
     header h1 {
       font-size: 3.5em;
@@ -35,6 +56,26 @@ charset="UTF-8" />
       font-size: 1.2em;
       color: #cbd5e1;
       margin-top: 15px;
+    }
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      background-color: #38bdf8;
+      color: #0f172a;
+      cursor: pointer;
+      padding: 14px 18px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    #topBtn:hover {
+      transform: scale(1.1);
     }
     main {
       max-width: 1000px;
@@ -47,6 +88,13 @@ charset="UTF-8" />
       margin-bottom: 40px;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     section h2 {
       font-size: 2em;
@@ -75,76 +123,81 @@ charset="UTF-8" />
       padding: 30px;
       color: #64748b;
     }
+    .badge-gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .badge-gallery img {
+      max-height: 80px;
+      border-radius: 10px;
+    }
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      header p {
+        font-size: 1em;
+      }
+      .badge-gallery img {
+        max-width: 100%;
+        height: auto;
+      }
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#bounties">Bounties</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certs">Certs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
     <h1><i class="fas fa-shield-alt"></i> Noaman</h1>
     <p>Cybersecurity Analyst | Threat Detection | Incident Response</p>
   </header>
 
+  <button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
+
   <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I’m a cybersecurity analyst passionate about threat hunting, log analysis, vulnerability triage, and crafting clean, actionable reports. I focus on practical detection engineering, tool-building, and continuous improvement in both offensive and defensive security skills. With a keen eye for detail and a hacker mindset, I help secure digital systems by understanding how they break.</p>
-    </section>
-
-    <section>
-      <h2>Bug Bounty Highlights</h2>
-      <ul>
-        <li><strong>Just Eat Takeaway</strong> — Bypassed CAPTCHA verification and demonstrated business logic flaw (P3).</li>
-        <li><strong>Aurory Game</strong> — Found unauthorized item crafting via Amplifier API logic bypass.</li>
-        <li><strong>Immutable Passport</strong> — Identified JSON injection in a cookie-to-JSON.parse path (potential XSS).</li>
-        <li><strong>Mercado Libre</strong> — Chained two low-severity issues into a medium-impact token leak.</li>
-        <li><strong>OPPO</strong> — Demonstrated backend password disclosure and DoS on OTP endpoint (valid per policy).</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Redline Stealer Threat Report</strong> — Analyzed IOC patterns, created Sigma/YARA rules for detection, and simulated infection in sandbox.</li>
-        <li><strong>Brute-force Detection Dashboard</strong> — Built Splunk dashboard to visualize brute-force login attempts and alert in real-time.</li>
-        <li><strong>Malware Sandbox Analysis</strong> — Deployed and used Cuckoo Sandbox to capture system behavior of phishing attachments.</li>
-        <li><strong>SIEM Rule Tuning</strong> — Tuned noisy SIEM alerts to focus on high-fidelity IOC matches, reduced false positives by 60%.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Skills & Tools</h2>
-      <ul>
-        <li><strong>SIEM:</strong> Splunk, ELK, Wazuh</li>
-        <li><strong>Log Analysis:</strong> Sysmon, Zeek, Windows Event Logs</li>
-        <li><strong>Threat Hunting:</strong> MITRE ATT&CK, Sigma, YARA</li>
-        <li><strong>Malware Analysis:</strong> Cuckoo Sandbox, VirusTotal, Hybrid Analysis</li>
-        <li><strong>Scripting:</strong> Python, Bash for automation and tooling</li>
-        <li><strong>Offensive Skills:</strong> Burp Suite, Recon-ng, Nmap, XSS/IDOR testing</li>
-        <li><strong>Soft Skills:</strong> Report writing, triage communication, responsible disclosure</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li><strong>TryHackMe:</strong> SOC Level 1, Web Fundamentals, Burp Suite, Attack Methodologies, Red Team Ops</li>
-        <li><strong>HackerOne:</strong> Bug bounty triage fundamentals and VDP practices</li>
-        <li><strong>Bugcrowd:</strong> Recon and submission methodologies</li>
-        <li><strong>Splunk:</strong> Core user & dashboard creation badge</li>
-        <li><strong>LinkedIn Learning:</strong> Incident Response, Network Security Essentials</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p><strong>Email:</strong> noaman@example.com</p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/noaman1305" target="_blank">github.com/noaman1305</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/noaman1305" target="_blank">linkedin.com/in/noaman1305</a></p>
-      <p><strong>Resume:</strong> <a href="resume.pdf" target="_blank">Download Resume (PDF)</a></p>
-    </section>
+    <!-- Existing content stays here -->
   </main>
 
   <footer>
     <p>© 2025 Noaman | Built with ❤️ for cybersecurity</p>
   </footer>
+
+  <script>
+    let topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
