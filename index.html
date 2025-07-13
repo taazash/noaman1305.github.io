@@ -8,15 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-  --bg-primary: #0a0f1c;
-  --bg-secondary: #111827;
-  --bg-accent: #2563eb;
-  --text-light: #f3f4f6;
-  --text-muted: #9ca3af;
-  --accent: #22d3ee;
-  --highlight: #14b8a6;
-}
-
+      --bg-primary: #0a0f1c;
+      --bg-secondary: #111827;
+      --bg-accent: #2563eb;
+      --text-light: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #22d3ee;
+      --highlight: #14b8a6;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -28,26 +27,47 @@
       color: var(--text-light);
       scroll-behavior: smooth;
     }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(34,211,238,0.08), transparent 70%);
+      z-index: 0;
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+    header, main, nav, footer, section {
+      position: relative;
+      z-index: 1;
+    }
     header {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(to right, #0ea5e9, #111827);
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to right, #0ea5e9, #111827);
       color: var(--accent);
       animation: fadeInDown 1.2s ease-out;
     }
+    .typing {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-top: 15px;
+    }
     nav {
-  background: var(--bg-secondary);
-  padding: 15px 5vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
+      background: var(--bg-secondary);
+      padding: 15px 5vw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
     nav a {
       color: var(--text-light);
       text-decoration: none;
@@ -55,7 +75,24 @@
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: var(--accent);
+      color: var(--highlight);
+    }
+    .animated-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .animated-underline::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--highlight));
+      transition: width 0.4s ease;
+    }
+    .animated-underline:hover::after {
+      width: 100%;
     }
     section {
       max-width: 900px;
@@ -66,7 +103,7 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.5);
       opacity: 0;
       transform: translateY(60px);
-      animation: slideUp 1s forwards;
+      animation: fadeInUp 0.8s ease-out forwards;
     }
     section h2 {
       font-size: 2em;
@@ -82,67 +119,7 @@
     ul li {
       margin-bottom: 12px;
     }
-    a {
-      color: var(--accent);
-      transition: color 0.3s;
-    }
-    a:hover {
-      color: var(--highlight);
-    }
-    .badge-gallery {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-    .badge-gallery img {
-      height: 80px;
-      border-radius: 10px;
-      transition: transform 0.3s;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    }
-    .badge-gallery img:hover {
-      transform: scale(1.1);
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-muted);
-      background-color: #0c1220;
-      font-size: 0.9rem;
-      border-top: 1px solid #1e293b;
-    }
-    @keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  60% {
-    opacity: 0.5;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-    }
-    @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-      .resume-button {
+    .resume-button {
       display: inline-block;
       margin-top: 20px;
       background-color: var(--bg-accent);
@@ -173,108 +150,46 @@
       display: block;
       color: var(--highlight);
     }
-    .typing {
-      color: var(--accent);
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-top: 15px;
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      background-color: #0c1220;
+      font-size: 0.9rem;
+      border-top: 1px solid #1e293b;
     }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animated-underline {
-      position: relative;
-      display: inline-block;
-    }
-    .animated-underline::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0;
-      background-color: var(--accent);
-      transition: width 0.4s ease;
-    }
-    .animated-underline:hover::after {
-      width: 100%;
-    }
-    /* Background animated glow */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: radial-gradient(circle at center, rgba(34,211,238,0.08), transparent 70%);
-      z-index: 0;
-      animation: pulseGlow 6s ease-in-out infinite;
-    }
-    main, nav, header, footer, section {
-      position: relative;
-      z-index: 1;
-    }
-
     @keyframes pulseGlow {
       0%, 100% { transform: scale(1); opacity: 0.6; }
       50% { transform: scale(1.05); opacity: 0.3; }
     }
-
-    /* Section bounce effect */
-    .fade-in {
-      animation: fadeInUp 0.8s ease-out forwards;
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      60% { opacity: 0.7; transform: translateY(-10px); }
+      0% { opacity: 0; transform: translateY(60px); }
+      60% { opacity: 0.5; transform: translateY(-10px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
-    /* Enhanced link underline */
-    .animated-underline {
-      position: relative;
-      display: inline-block;
-    }
-    .animated-underline::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0;
-      background: linear-gradient(90deg, var(--accent), var(--highlight));
-      transition: width 0.4s ease;
-    }
-    .animated-underline:hover::after {
-      width: 100%;
-    }
-
+  </style>
 </head>
 <body>
   <header>
     <h1><i class="fas fa-shield-alt"></i> NoamanSec</h1>
     <p class="typing" id="typing"></p>
   </header>
-
-  <nav>$1</nav>
-<script>
-  // Apply fade-in class to all sections
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("section").forEach((el, i) => {
-      el.classList.add("fade-in");
-      el.style.animationDelay = `${i * 0.2}s`;
-    });
-    document.querySelectorAll("nav a").forEach(link => link.classList.add("animated-underline"));
-  });
-</script>
-
+  <nav>
+    <a class="animated-underline" href="#about">About</a>
+    <a class="animated-underline" href="#skills">Skills</a>
+    <a class="animated-underline" href="#experience">Experience</a>
+    <a class="animated-underline" href="#projects">Projects</a>
+    <a class="animated-underline" href="#labs">Labs</a>
+    <a class="animated-underline" href="#reports">Reports</a>
+    <a class="animated-underline" href="#certs">Certifications</a>
+    <a class="animated-underline" href="#resume">Resume</a>
+        <a class="animated-underline" href="#achievements">Achievements</a>
+    <a class="animated-underline" href="#contact">Contact</a>
+  </nav>
   <main>
     <section id="about">
       <h2>About Me</h2>
@@ -342,39 +257,26 @@
     </section>
 
     <section id="certs">
-  <h2>Certifications</h2>
-  <ul>
-    <li><strong>Google – Foundations of Cybersecurity</strong> (May–June 2024)</li>
-    <li><strong>Cisco – Introduction to Cybersecurity</strong> (April–May 2024)</li>
-    <li><strong>Cybersecurity Basics & Operating Systems</strong> (Aug–Sep 2024)</li>
-    <li><strong>Cisco – Ethical Hacker</strong> (April 2025)<br>
-      Covered: Ethical hacking methodologies, vulnerability scanning, social engineering, wired/wireless/network/app/cloud/mobile/IoT exploitation, post-exploitation, and penetration testing documentation.
-    </li>
-  </ul>
-</section>
+      <h2>Certifications</h2>
+      <ul>
+        <li><strong>Google – Foundations of Cybersecurity</strong> (May–June 2024)</li>
+        <li><strong>Cisco – Introduction to Cybersecurity</strong> (April–May 2024)</li>
+        <li><strong>Cybersecurity Basics & Operating Systems</strong> (Aug–Sep 2024)</li>
+        <li><strong>Cisco – Ethical Hacker</strong> (April 2025)<br>
+          Covered: Ethical hacking methodologies, vulnerability scanning, social engineering, wired/wireless/network/app/cloud/mobile/IoT exploitation, post-exploitation, and penetration testing documentation.
+        </li>
+      </ul>
+    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><strong>Email:</strong> <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+923113595919">+92 311 3595919</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh-2151a0216</a></p>
+    <section id="resume">
+      <h2>Download Resume</h2>
+      <p>You can download my complete cybersecurity resume in PDF format:</p>
+      <a href="Noaman_Shaikh_Penetration_Tester_CV_Updated.pdf" download class="resume-button">
+        <i class="fas fa-file-download"></i> Download Resume
+      </a>
     </section>
-      <section id="resume">
-  <h2>Download Resume</h2>
-  <p>You can download my complete cybersecurity resume in PDF format:</p>
-  <a href="Noaman_Shaikh_Penetration_Tester_CV_Updated.pdf" download class="resume-button">
-    <i class="fas fa-file-download"></i> Download Resume
-  </a>
-</section>
-      <section id="stats">
-      <h2>Quick Stats</h2>
-      <div class="counter">
-        <div><span id="report-count">0</span> Reports</div>
-        <div><span id="lab-count">0</span> Labs</div>
-        <div><span id="cert-count">0</span> Certs</div>
-      </div>
-    </section>
-      <section id="achievements">
+
+        <section id="achievements">
       <h2>Achievements</h2>
       <ul>
         <li><strong>Top 1% on TryHackMe:</strong> Ranked among top learners on the platform.</li>
@@ -383,9 +285,19 @@
         <li><strong>Community Support:</strong> Helped beginners start their bug bounty journey via Discord/Telegram groups.</li>
       </ul>
     </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+923113595919">+92 311 3595919</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh-2151a0216</a></p>
+    </section>
+    <!-- Your sections are already perfect and don’t need to be rewritten here -->
   </main>
+  <footer>
+    <p>© 2025 Noaman Shaikh. All rights reserved.</p>
+  </footer>
   <script>
-    // Typing animation
     const text = "Cybersecurity Analyst & Bug Bounty Hunter";
     const typingEl = document.getElementById("typing");
     let idx = 0;
@@ -398,7 +310,6 @@
     }
     typeText();
 
-    // Counter animation
     function animateCounter(id, endValue, speed) {
       let count = 0;
       const step = () => {
@@ -411,8 +322,11 @@
       step();
     }
     window.onload = () => {
-      animateCounter("report-count", 10, 100);
-      animateCounter("lab-count", 20, 80);
-      animateCounter("cert-count", 3, 200);
+            document.querySelectorAll("section").forEach((el, i) => {
+        el.classList.add("fade-in");
+        el.style.animationDelay = `${i * 0.2}s`;
+      });
     };
   </script>
+</body>
+</html>
