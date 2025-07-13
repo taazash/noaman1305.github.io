@@ -14,7 +14,7 @@
   --text-light: #f3f4f6;
   --text-muted: #9ca3af;
   --accent: #22d3ee;
-  --highlight: #0ea5e9;
+  --highlight: #14b8a6;
 }
 
     * {
@@ -29,9 +29,9 @@
       scroll-behavior: smooth;
     }
     header {
-      text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(to right, var(--highlight), var(--bg-primary));
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #0ea5e9, #111827);
       color: var(--accent);
       animation: fadeInDown 1.2s ease-out;
     }
@@ -111,16 +111,30 @@
       border-top: 1px solid #1e293b;
     }
     @keyframes slideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  60% {
+    opacity: 0.5;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     }
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
       to {
         opacity: 1;
         transform: translateY(0);
@@ -140,12 +154,35 @@
     .resume-button:hover {
       background-color: var(--highlight);
     }
+    .counter {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .counter div {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .counter span {
+      font-size: 2.5rem;
+      display: block;
+      color: var(--highlight);
+    }
+    .typing {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-top: 15px;
+    }
 </style>
 </head>
 <body>
   <header>
     <h1><i class="fas fa-shield-alt"></i> NoamanSec</h1>
-    <p>Cybersecurity Analyst & Bug Bounty Hunter</p>
+    <p class="typing" id="typing"></p>
   </header>
 
   <nav>
@@ -226,17 +263,13 @@
     </section>
 
     <section id="certs">
-      <h2>Certifications</h2>
-      <ul>
-        <li><strong>Google – Foundations of Cybersecurity</strong> (May–June 2024)</li>
-        <li><strong>Cisco – Introduction to Cybersecurity</strong> (April–May 2024)</li>
-        <li><strong>Cybersecurity Basics & Operating Systems</strong> (Aug–Sep 2024)</li>
-      </ul>
-      <div class="badge-gallery">
-        <img src="https://images.credly.com/size/220x220/images/0c559db6-5d8b-42e7-b84c-bbdfda57a4f4/image.png" alt="TryHackMe Badge" />
-        <img src="https://images.credly.com/size/220x220/images/8e4f5c52-04cc-4d0a-b748-5cfa95c3a1aa/image.png" alt="Cisco Badge" />
-      </div>
-    </section>
+  <h2>Certifications</h2>
+  <ul>
+    <li><strong>Google – Foundations of Cybersecurity</strong> (May–June 2024)</li>
+    <li><strong>Cisco – Introduction to Cybersecurity</strong> (April–May 2024)</li>
+    <li><strong>Cybersecurity Basics & Operating Systems</strong> (Aug–Sep 2024)</li>
+  </ul>
+</section>
 
     <section id="contact">
       <h2>Contact</h2>
@@ -251,4 +284,53 @@
     <i class="fas fa-file-download"></i> Download Resume
   </a>
 </section>
+      <section id="stats">
+      <h2>Quick Stats</h2>
+      <div class="counter">
+        <div><span id="report-count">0</span> Reports</div>
+        <div><span id="lab-count">0</span> Labs</div>
+        <div><span id="cert-count">0</span> Certs</div>
+      </div>
+    </section>
+      <section id="achievements">
+      <h2>Achievements</h2>
+      <ul>
+        <li><strong>Top 1% on TryHackMe:</strong> Ranked among top learners on the platform.</li>
+        <li><strong>Multiple Triaged Reports:</strong> Valid bugs accepted by companies like OPPO, Just Eat, and Mercado Libre.</li>
+        <li><strong>Publicly Credited Research:</strong> Acknowledged on several company halls of fame and researcher leaderboards.</li>
+        <li><strong>Community Support:</strong> Helped beginners start their bug bounty journey via Discord/Telegram groups.</li>
+      </ul>
+    </section>
   </main>
+  <script>
+    // Typing animation
+    const text = "Cybersecurity Analyst & Bug Bounty Hunter";
+    const typingEl = document.getElementById("typing");
+    let idx = 0;
+    function typeText() {
+      if (idx < text.length) {
+        typingEl.innerHTML += text.charAt(idx);
+        idx++;
+        setTimeout(typeText, 60);
+      }
+    }
+    typeText();
+
+    // Counter animation
+    function animateCounter(id, endValue, speed) {
+      let count = 0;
+      const step = () => {
+        count++;
+        document.getElementById(id).textContent = count;
+        if (count < endValue) {
+          setTimeout(step, speed);
+        }
+      };
+      step();
+    }
+    window.onload = () => {
+      animateCounter("report-count", 10, 100);
+      animateCounter("lab-count", 20, 80);
+      animateCounter("cert-count", 3, 200);
+    };
+  </script>
