@@ -7,20 +7,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
+    :root {
+      --bg: #0f172a;
+      --bg-light: #f1f5f9;
+      --text: #f8fafc;
+      --text-light: #0f172a;
+      --accent: #38bdf8;
+      --secondary: #1e293b;
     }
     body {
-      background: #0f172a;
-      color: #f8fafc;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
       line-height: 1.6;
       scroll-behavior: smooth;
+      transition: background 0.4s, color 0.4s;
+    }
+    body.light-mode {
+      --bg: #f1f5f9;
+      --text: #0f172a;
+      --secondary: #e2e8f0;
+    }
+    * {
+      box-sizing: border-box;
     }
     nav {
-      background-color: #1e293b;
+      background-color: var(--secondary);
       padding: 15px 20px;
       position: sticky;
       top: 0;
@@ -31,26 +44,25 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     nav a {
-      color: #f8fafc;
+      color: var(--text);
       font-weight: 600;
       text-decoration: none;
       transition: color 0.3s;
     }
     nav a:hover {
-      color: #38bdf8;
+      color: var(--accent);
     }
     header {
       background: url('https://images.unsplash.com/photo-1623050981744-1b8c6593f0a2?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
       padding: 100px 20px;
       text-align: center;
-      color: #f8fafc;
+      color: var(--text);
       box-shadow: inset 0 0 0 2000px rgba(15, 23, 42, 0.85);
-      position: relative;
     }
     header h1 {
       font-size: 3.5em;
       font-weight: 800;
-      color: #38bdf8;
+      color: var(--accent);
     }
     header p {
       font-size: 1.2em;
@@ -66,8 +78,8 @@
       font-size: 20px;
       border: none;
       outline: none;
-      background-color: #38bdf8;
-      color: #0f172a;
+      background-color: var(--accent);
+      color: var(--bg);
       cursor: pointer;
       padding: 14px 18px;
       border-radius: 50%;
@@ -83,7 +95,7 @@
       padding: 40px 20px;
     }
     section {
-      background: #1e293b;
+      background: var(--secondary);
       padding: 40px;
       margin-bottom: 40px;
       border-radius: 16px;
@@ -99,7 +111,7 @@
     section h2 {
       font-size: 2em;
       margin-bottom: 20px;
-      color: #38bdf8;
+      color: var(--accent);
     }
     section p, section ul {
       font-size: 1.1em;
@@ -112,7 +124,7 @@
       margin-bottom: 12px;
     }
     a {
-      color: #38bdf8;
+      color: var(--accent);
       text-decoration: none;
     }
     a:hover {
@@ -132,6 +144,15 @@
     .badge-gallery img {
       max-height: 80px;
       border-radius: 10px;
+    }
+    .toggle-mode {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: transparent;
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
     }
     @media screen and (max-width: 768px) {
       header h1 {
@@ -159,6 +180,7 @@
     <a href="#skills">Skills</a>
     <a href="#certs">Certs</a>
     <a href="#contact">Contact</a>
+    <button class="toggle-mode" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
   </nav>
 
   <header>
@@ -198,6 +220,10 @@
       });
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
+
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
   </script>
 </body>
 </html>
