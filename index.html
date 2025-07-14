@@ -1,268 +1,47 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noaman Shaikh | Cybersecurity Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    :root {
-      --bg-primary: #0e101a;
-      --bg-secondary: #1f2937;
-      --accent: #38bdf8;
-      --highlight: #14b8a6;
-      --text-light: #f9fafb;
-      --text-muted: #9ca3af;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-    body {
-      background: linear-gradient(180deg, #0e101a 0%, #1f2937 100%);
-      color: var(--text-light);
-      overflow-x: hidden;
-    }
-    body::before {
-      content:"";
-      position:fixed; inset:0;
-      background: radial-gradient(circle at center, rgba(56,189,248,0.05), transparent 70%);
-      animation: pulseGlow 6s ease-in-out infinite;
-      z-index:0;
-    }
-    body::after {
-      content:"";
-      position:fixed; inset:0;
-      background:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: moveGrid 20s linear infinite;
-      z-index:0;
-    }
-    header {
-      text-align:center;
-      padding:120px 20px 60px;
-      background: radial-gradient(circle at center, #38bdf8, #1f2937);
-      color: var(--accent);
-      position: relative;
-      animation: fadeIn 1.5s ease-out;
-      box-shadow: 0 0 40px rgba(56,189,248,0.2);
-      z-index:1;
-    }
-    header h1 { font-size:3rem; font-weight:800; text-shadow:0 0 12px rgba(56,189,248,0.4); }
-    .typing { margin-top:20px; font-style:italic; font-size:1.2rem; color:var(--highlight); }
-    nav {
-      background: var(--bg-secondary);
-      padding:15px 40px;
-      display:flex; justify-content:center; gap:30px;
-      position:sticky; top:0; z-index:2;
-      box-shadow:0 4px 12px rgba(0,0,0,0.6);
-    }
-    nav a {
-      color:var(--text-light);
-      font-weight:600; text-decoration:none;
-      position:relative; padding:4px;
-      transition:color .3s;
-    }
-    nav a::after {
-      content:""; position:absolute; bottom:-4px; left:0;
-      width:0; height:2px;
-      background:var(--accent);
-      transition:width .3s;
-    }
-    nav a:hover { color:var(--accent); }
-    nav a:hover::after { width:100%; }
-    main { padding-bottom:60px; }
-    section {
-      max-width:900px;
-      margin:60px auto;
-      padding:40px;
-      background:rgba(31,41,55,0.9);
-      border-radius:16px;
-      box-shadow:0 20px 40px rgba(0,0,0,0.5);
-      opacity:0; transform:translateY(60px);
-      transition:opacity .6s ease, transform .6s ease;
-      z-index:1;
-    }
-    section.visible { opacity:1; transform:translateY(0); }
-    section h2 {
-      font-size:2rem;
-      margin-bottom:20px;
-      color:var(--accent);
-      padding-left:12px;
-      position:relative;
-    }
-    section h2::before {
-      content:""; position:absolute; left:0; top:4px;
-      width:6px; height:calc(100% - 4px);
-      background:var(--highlight);
-    }
-    ul { margin-left:20px; list-style:disc; }
-    ul li { margin-bottom:8px; }
-    .resume-button {
-      display:inline-block;
-      background:var(--accent);
-      color:#fff;
-      padding:12px 24px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      margin-top:20px;
-      position:relative;
-      overflow:hidden;
-      transition:background .3s;
-    }
-    .resume-button::after {
-      content:""; position:absolute;
-      inset:0;
-      border:2px solid var(--highlight);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .4s ease;
-    }
-    .resume-button:hover { background:var(--highlight); }
-    .resume-button:hover::after { transform:scaleX(1); }
-    footer {
-      text-align:center;
-      padding:40px 20px;
-      background:var(--bg-primary);
-      color:var(--text-muted);
-      border-top:1px solid #374151;
-      font-size:.9rem;
-      z-index:1;
-      position:relative;
-    }
-    @keyframes pulseGlow {
-      0%,100% { transform:scale(1); opacity:.6; }
-      50% { transform:scale(1.05); opacity:.3; }
-    }
-    @keyframes moveGrid { to { background-position:40px 40px; } }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(-40px); } to { opacity:1; transform:translateY(0); } }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src
+="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1><i class="fas fa-shield-alt"></i> Noaman Shaikh</h1>
-    <p class="typing" id="typing"></p>
+  <div class="preloader">
+    <span class="loader"></span>
+  </div>
+  <header class="glass">
+    <nav class="nav-container">
+      <h1 class="logo">Noaman</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
-  <nav>
-    <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
-    <a href="#projects">Projects</a><a href="#labs">Labs</a><a href="#reports">Reports</a>
-    <a href="#certs">Certifications</a><a href="#resume">Resume</a><a href="#achievements">Achievements</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
-  <main>
-    <!-- About -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m Noaman, a cybersecurity analyst and bug bounty hunter. I specialize in vulnerability research, secure infrastructure assessments, and hands-on offensive and defensive labs. I've contributed to securing real-world platforms through triaged reports and continuously strive to enhance my skills through practical learning.</p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Security Tools:</strong> Nmap, Wireshark, JohnTheRipper, Aircrack-ng, Burp Suite, OWASP ZAP</li>
-        <li><strong>OS:</strong> Kali Linux, Ubuntu, Windows</li>
-        <li><strong>Languages:</strong> C++, Bash</li>
-        <li><strong>Networking:</strong> TCP/IP, DNS, HTTP/HTTPS, VirtualBox, VMware</li>
-        <li><strong>Concepts:</strong> OWASP‑10, Incident Response, Cryptography, Active Directory Basics</li>
-      </ul>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Cybersecurity Intern – Bytewise Ltd (Remote)</strong> (Jun–Sep 2024): Performed network scans, identified anomalies, supported Active Directory sandbox testing.</li>
-      </ul>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Threat Intel Automation:</strong> Scripts to pull IOCs via VirusTotal & AbuseIPDB.</li>
-        <li><strong>BurpSuite Plugin:</strong> Auto token injection and session handling.</li>
-        <li><strong>Payload Collector:</strong> Local fuzzing toolkit for XSS/SQLi payloads.</li>
-      </ul>
-    </section>
-
-    <!-- Labs -->
-    <section id="labs">
-      <h2>TryHackMe Labs</h2>
-      <ul>
-        <li>OWASP Top 10, Solar CVE‑2021‑44228, Web Security, Phishing Analysis, Incident Response, Cryptography 101, Linux & Windows Basics.</li>
-      </ul>
-    </section>
-
-    <!-- Reports -->
-    <section id="reports">
-      <h2>Bug Bounty Reports</h2>
-      <ul>
-        <li>IDOR – Grab, Wallet App Git exposure, CSRF in e‑commerce, Subdomain Takeover (XYZ SaaS), Token Leak, Reflected XSS, Rate Limit Bypass, Info Disclosure, Broken Auth – all triaged or credited.</li>
-      </ul>
-    </section>
-
-    <!-- Certs -->
-    <section id="certs">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Google – Foundations of Cybersecurity (May–Jun 2024)</li>
-        <li>Cisco – Intro to Cybersecurity (Apr–May 2024)</li>
-        <li>Cybersecurity Basics & OS (Aug–Sep 2024)</li>
-        <li>Cisco – Ethical Hacker (Apr 2025)</li>
-      </ul>
-    </section>
-
-    <!-- Resume -->
-    <section id="resume">
-      <h2>Download Resume</h2>
-      <a href="Noaman_Shaikh_Penetration_Tester_CV_Updated.pdf" download class="resume-button">
-        <i class="fas fa-file-download"></i> Download Resume
-      </a>
-    </section>
-
-    <!-- Achievements -->
-    <section id="achievements">
-      <h2>Achievements</h2>
-      <ul>
-        <li>Top 1% on TryHackMe leaderboard.</li>
-        <li>Multiple triaged reports for brands like OPPO, Just Eat, Mercado Libre.</li>
-        <li>Credited in company halls of fame.</li>
-        <li>Mentee support via Discord/Telegram groups.</li>
-      </ul>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
-      <p><i class="fas fa-phone"></i> <a href="tel:+923113595919">+92 311 3595919</a></p>
-      <p><i class="fas fa-linkedin"></i> <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh-2151a0216</a></p>
+  <main class="main-content">
+    <section class="hero">
+      <h2>Hello, I'm <span class="highlight">Noaman Shaikh</span></h2>
+      <p class="typing" id="typing"></p>
+      <a class="btn-glass" href="resume.html">Download Resume</a>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Noaman Shaikh. All rights reserved.</p>
+  <footer class="glass">
+    <p>© 2025 Noaman Shaikh. All rights reserved.</p>
   </footer>
-
-  <script>
-    const text = "Cybersecurity Analyst & Bug Bounty Hunter";
-    let idx = 0;
-    const typingEl = document.getElementById("typing");
-    function typeText() {
-      if (idx < text.length) {
-        typingEl.innerHTML += text[idx++];
-        setTimeout(typeText, 60);
-      }
-    }
-    window.onload = () => {
-      typeText();
-      document.querySelectorAll("section").forEach((s, i) => {
-        setTimeout(() => s.classList.add("visible"), i * 200);
-      });
-    };
-  </script>
 </body>
 </html>
