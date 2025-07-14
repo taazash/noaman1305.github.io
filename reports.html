@@ -1,0 +1,53 @@
+<!-- reports.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | Noaman Shaikh</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="glass">
+    <nav class="nav-container">
+      <h1 class="logo">Noaman</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="reports.html" class="active">Reports</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="glass section-content">
+      <h2 class="section-title">Bug Bounty Reports</h2>
+      <ul class="report-list">
+        <li><strong>IDOR – Grab:</strong> Access to user profiles via insecure object reference (Triaged)</li>
+        <li><strong>Wallet App Debug File:</strong> Publicly exposed Git directory and config files (Triaged)</li>
+        <li><strong>CSRF – E-commerce:</strong> Password change via cross-site request forgery (Duplicate)</li>
+        <li><strong>Subdomain Takeover – XYZ SaaS:</strong> Hijackable DNS record (Triaged)</li>
+        <li><strong>Token Leak – JS File:</strong> Hardcoded API token found (Triaged)</li>
+        <li><strong>Open Redirect:</strong> Redirected users to attacker domain (Duplicate)</li>
+        <li><strong>Info Disclosure – Headers:</strong> Server version revealed (Triaged)</li>
+        <li><strong>Reflected XSS – Feedback:</strong> Script injection via unescaped input (Triaged)</li>
+        <li><strong>Broken Auth:</strong> Privilege escalation through token swapping (Triaged)</li>
+        <li><strong>Rate Limit Bypass:</strong> Brute-force protection evaded (Triaged)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="glass">
+    <p>© 2025 Noaman Shaikh. All rights reserved.</p>
+  </footer>
+</body>
+</html>
