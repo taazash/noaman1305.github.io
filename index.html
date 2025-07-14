@@ -14,6 +14,15 @@
     <div class="loader"></div>
   </div>
 
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Hi, I’m <span class="highlight">Noaman Shaikh</span></h1>
+      <p class="typing" id="typing"></p>
+      <a href="#projects" class="explore-button">Explore My Work</a>
+    </div>
+  </header>
+
   <!-- Navigation -->
   <nav class="nav-container">
     <div class="logo">Noaman's Portfolio</div>
@@ -35,76 +44,82 @@
   <main>
     <section class="glass fade-in" id="about">
       <h2>About Me</h2>
-      <p>I’m Noaman Shaikh, a Cybersecurity Analyst and Bug Bounty Hunter with hands-on experience in offensive and defensive security. I specialize in identifying, exploiting, and responsibly disclosing vulnerabilities in real-world applications. I thrive in CTFs, Red/Blue team labs, and am always pushing my technical boundaries in the infosec domain.</p>
+      <p>I’m Noaman Shaikh, a passionate Cybersecurity Analyst and Bug Bounty Hunter dedicated to making the digital world safer. With hands-on experience in vulnerability assessment, penetration testing, and security research, I specialize in identifying and reporting real-world security flaws across web and cloud platforms.</p>
+      <p>I’ve completed extensive offensive and defensive training through TryHackMe and other platforms, and have responsibly disclosed vulnerabilities to major tech companies — many of which have been triaged and acknowledged. I continuously refine my skills through capture-the-flag challenges, threat intelligence work, and crafting custom tooling for testing and automation.</p>
+      <p>Whether it’s securing applications, understanding adversary behavior, or helping improve blue team response, I bring a proactive, detail-oriented mindset to every challenge.</p>
     </section>
 
     <section class="glass fade-in" id="skills">
       <h2>Skills</h2>
       <ul>
-        <li><strong>Security Tools:</strong> Nmap, Wireshark, JohnTheRipper, Aircrack-ng, Burp Suite, OWASP ZAP</li>
+        <li><strong>Security Tools:</strong> Nmap, Wireshark, Burp Suite, OWASP ZAP, JohnTheRipper, Aircrack-ng</li>
         <li><strong>Operating Systems:</strong> Kali Linux, Ubuntu, Windows</li>
         <li><strong>Languages & Scripting:</strong> C++, Bash (basic)</li>
-        <li><strong>Virtualization & Networking:</strong> VMware, VirtualBox, TCP/IP, DNS, HTTP/HTTPS</li>
-        <li><strong>Security Concepts:</strong> OWASP Top 10, Incident Response, Vulnerability Assessment, Cryptography, Active Directory</li>
-        <li><strong>Other:</strong> Microsoft Office, Sandbox Environments</li>
+        <li><strong>Networking & Virtualization:</strong> TCP/IP, DNS, HTTP/HTTPS, VMware, VirtualBox</li>
+        <li><strong>Concepts:</strong> OWASP Top 10, Vulnerability Assessment, Incident Response, Cryptography, Active Directory Basics</li>
+        <li><strong>Others:</strong> Microsoft Office, Sandbox Environments</li>
       </ul>
     </section>
 
     <section class="glass fade-in" id="experience">
       <h2>Experience</h2>
+      <p><strong>Cybersecurity Intern – Bytewise Ltd (Remote)</strong><br>June 2024 - September 2024</p>
       <ul>
-        <li><strong>Cybersecurity Intern – Bytewise Ltd (Remote)</strong><br>
-          <em>June 2024 - September 2024</em><br>
-          - Performed vulnerability assessments on internal and external systems<br>
-          - Utilized Nmap, Wireshark, and Snort for scanning and analysis<br>
-          - Participated in log monitoring, basic SIEM usage, and reported findings to senior analysts</li>
+        <li>Conducted vulnerability assessments using tools like Nmap and Wireshark</li>
+        <li>Analyzed anomalies in network traffic and system behavior</li>
+        <li>Worked with sandbox testing environments and Active Directory</li>
       </ul>
     </section>
 
     <section class="glass fade-in" id="projects">
       <h2>Projects</h2>
       <ul>
-        <li><strong>Threat Intelligence Automation:</strong> Created a script to extract Indicators of Compromise (IOCs) from raw logs and automatically enrich them using VirusTotal and AbuseIPDB APIs. Helped streamline blue team response time.</li>
-        <li><strong>BurpSuite Plugin:</strong> Developed a custom Burp extension that handles dynamic token replacement and session management during fuzzing. Improved automation of authenticated scanning.</li>
-        <li><strong>Payload Collector Toolkit:</strong> Designed a modular toolkit to manage and reuse payloads for XSS and SQLi across multiple bug bounty targets. Featured sorting, tagging, and severity ranking.</li>
+        <li><strong>Threat Intel Automation:</strong> Developed a script to extract and enrich IOCs from logs using VirusTotal and AbuseIPDB APIs to automate threat intelligence workflows.</li>
+        <li><strong>BurpSuite Plugin:</strong> Created a custom Burp extension to inject tokens dynamically and maintain session persistence during web application testing.</li>
+        <li><strong>Payload Collector:</strong> Designed a modular fuzzing toolkit that stores, organizes, and injects payloads for XSS and SQL injection during manual testing sessions.</li>
       </ul>
     </section>
 
     <section class="glass fade-in" id="labs">
-      <h2>TryHackMe Labs</h2>
+      <h2>TryHackMe Labs Completed</h2>
       <ul>
-        <li><strong>Offensive Security:</strong> OWASP Top 10, Web Security 101, Solar CVE-2021-44228, Google Dorking, Enumeration & Privilege Escalation</li>
-        <li><strong>Defensive Security:</strong> SIEM Lab, Email Threat Analysis, Log Hunting, Incident Response Simulation</li>
-        <li><strong>Fundamentals:</strong> Linux Shell Mastery, Windows Essentials, Cryptography 101</li>
-        <li><strong>IR Frameworks:</strong> Pyramid of Pain, Cyber Kill Chain, MITRE ATT&CK Matrix, Unified Kill Chain</li>
+        <li><strong>Offensive Security:</strong> OWASP Top 10, Web Security, Log4Shell CVE-2021-44228, Google Dorking</li>
+        <li><strong>Defensive Security:</strong> SIEM Introduction, Phishing Analysis, Incident Response</li>
+        <li><strong>Fundamentals:</strong> Linux Basics, Windows Fundamentals, Cryptography 101</li>
+        <li><strong>IR Frameworks:</strong> Pyramid of Pain, Cyber Kill Chain, Unified Kill Chain</li>
+        <li><strong>Career Prep:</strong> Junior Analyst Intro, Careers in Cybersecurity</li>
       </ul>
     </section>
 
     <section class="glass fade-in" id="reports">
       <h2>Bug Bounty Reports</h2>
       <ul>
-        <li><strong>IDOR on Grab:</strong> Insecure Direct Object Reference vulnerability exposed user profiles. Status: Triaged</li>
-        <li><strong>Debug File Leak – Wallet App:</strong> Sensitive Git config and exposed logs. Status: Triaged</li>
-        <li><strong>CSRF on E-commerce App:</strong> Forced password change via crafted link. Status: Duplicate</li>
-        <li><strong>Subdomain Takeover – XYZ SaaS:</strong> Hijackable CNAME record. Status: Triaged</li>
-        <li><strong>Hardcoded API Key – JS File:</strong> Token exposed in client-side JS. Status: Triaged</li>
-        <li><strong>Reflected XSS – Feedback:</strong> XSS via unescaped feedback form. Status: Triaged</li>
+        <li><strong>IDOR – Grab:</strong> Gained access to user profiles via insecure object references (Triaged)</li>
+        <li><strong>Wallet App Debug File:</strong> Publicly exposed .git directory and sensitive config files (Triaged)</li>
+        <li><strong>CSRF – E-commerce:</strong> Password change via forged requests (Duplicate)</li>
+        <li><strong>Subdomain Takeover – XYZ SaaS:</strong> Hijacked unclaimed DNS entries (Triaged)</li>
+        <li><strong>Token Leak – JavaScript File:</strong> Hardcoded API token discovered (Triaged)</li>
+        <li><strong>Open Redirect:</strong> Unsafe redirect vulnerable endpoint (Duplicate)</li>
+        <li><strong>Info Disclosure – HTTP Headers:</strong> Server version leak (Triaged)</li>
+        <li><strong>Reflected XSS – Feedback Form:</strong> Script injection via query parameters (Triaged)</li>
+        <li><strong>Broken Authentication:</strong> Privilege escalation through token manipulation (Triaged)</li>
+        <li><strong>Rate Limit Bypass:</strong> Automated brute-force protection bypass (Triaged)</li>
       </ul>
     </section>
 
     <section class="glass fade-in" id="certs">
       <h2>Certifications</h2>
       <ul>
-        <li><strong>Google - Foundations of Cybersecurity:</strong> Covered security layers, CIA triad, threat types, organizational structure of cyber teams (2024)</li>
-        <li><strong>Cisco - Ethical Hacker:</strong> Ethical hacking lifecycle, social engineering, wireless/web/app/network/cloud attacks (2025)</li>
-        <li><strong>Cisco - Introduction to Cybersecurity:</strong> High-level understanding of cyber landscape and careers (2024)</li>
-        <li><strong>Cybersecurity Basics & Operating Systems:</strong> Core OS security practices for Linux and Windows (2024)</li>
+        <li><strong>Google:</strong> Foundations of Cybersecurity (May–June 2024)</li>
+        <li><strong>Cisco:</strong> Introduction to Cybersecurity (April–May 2024)</li>
+        <li><strong>Cybersecurity Basics & Operating Systems:</strong> Concepts, virtualization, sandboxing (Aug–Sep 2024)</li>
+        <li><strong>Cisco – Ethical Hacker (April 2025):</strong> Covered ethical hacking methodologies including social engineering, vulnerability scanning, network, cloud, and mobile exploitation.</li>
       </ul>
     </section>
 
     <section class="glass fade-in" id="resume">
       <h2>Resume</h2>
-      <p>Download my full CV for detailed information on technical and soft skills, experience, and certifications.</p>
+      <p>You can download my complete cybersecurity resume in PDF format:</p>
       <a href="Noaman_Shaikh_Penetration_Tester_CV_Updated.pdf" download class="resume-button">
         <i class="fas fa-file-download"></i> Download Resume
       </a>
@@ -113,23 +128,24 @@
     <section class="glass fade-in" id="achievements">
       <h2>Achievements</h2>
       <ul>
-        <li><strong>Top 1% Learner on TryHackMe:</strong> Consistently ranked among the top performers</li>
-        <li><strong>Triaged Reports on Multiple Platforms:</strong> OPPO, Just Eat, Mercado Libre</li>
-        <li><strong>Recognized Researcher:</strong> Credited on Hall of Fame pages of various companies</li>
-        <li><strong>Mentorship:</strong> Guided beginners through bug bounty resources and communities</li>
+        <li><strong>Top 1% on TryHackMe:</strong> Ranked among elite users for lab completion and engagement.</li>
+        <li><strong>Multiple Triaged Reports:</strong> Valid bugs accepted by platforms including OPPO, Just Eat, and Mercado Libre.</li>
+        <li><strong>Hall of Fame:</strong> Listed in public acknowledgments by various tech companies.</li>
+        <li><strong>Community Contribution:</strong> Assisted many beginners in getting started with bug bounty via Discord and Telegram groups.</li>
       </ul>
     </section>
 
     <section class="glass fade-in" id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
-      <p>Phone: <a href="tel:+923113595919">+92 311 3595919</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh-2151a0216</a></p>
+      <p><strong>Email:</strong> <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+923113595919">+92 311 3595919</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh-2151a0216</a></p>
     </section>
   </main>
 
   <footer>
     <p>© 2025 Noaman Shaikh. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
