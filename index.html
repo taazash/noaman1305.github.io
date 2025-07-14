@@ -5,108 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noaman Shaikh | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
+  <div class="preloader">
     <div class="loader"></div>
   </div>
 
-  <!-- Navigation -->
-  <header class="nav-container">
-    <div class="logo">Noaman Shaikh</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#labs">Labs</a></li>
-        <li><a href="#reports">Reports</a></li>
-        <li><a href="#certs">Certifications</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="hero">
+    <h2>Hi, I’m <span class="highlight">Noaman Shaikh</span></h2>
+    <p>Cybersecurity Analyst & Bug Bounty Hunter</p>
+    <a href="#about" class="btn-glass">Explore My Work</a>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h2>Cybersecurity Analyst & <span class="highlight">Bug Bounty Hunter</span></h2>
-    <a href="#contact" class="btn-glass">Get In Touch</a>
-  </section>
-
-  <!-- Sections -->
-  <section id="about" class="glass fade-in">
-    <h2>About Me</h2>
-    <p>I’m Noaman, a cybersecurity analyst and bug bounty hunter...</p>
-  </section>
-
-  <section id="skills" class="glass fade-in">
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Security Tools:</strong> Nmap, Wireshark...</li>
-      <li><strong>Operating Systems:</strong> Kali Linux...</li>
-      <li><strong>Languages:</strong> C++, Bash (basic)</li>
+  <nav class="nav-container">
+    <div class="logo">Noaman</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#reports">Reports</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
+  </nav>
 
-  <section id="experience" class="glass fade-in">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Cybersecurity Intern – Bytewise Ltd:</strong> Network scanning, AD exposure...</li>
-    </ul>
-  </section>
+  <main>
+    <section class="glass fade-in" id="about">
+      <h2>About Me</h2>
+      <p>I’m Noaman, a cybersecurity analyst and bug bounty hunter. I specialize in vulnerability research, secure infrastructure assessments, and hands-on offensive and defensive labs.</p>
+    </section>
 
-  <section id="projects" class="glass fade-in">
-    <h2>Projects</h2>
-    <ul>
-      <li>Threat Intel Automation, BurpSuite Plugin, Payload Collector</li>
-    </ul>
-  </section>
+    <section class="glass fade-in" id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Security Tools: Nmap, Wireshark, Burp Suite, OWASP ZAP</li>
+        <li>Operating Systems: Kali Linux, Ubuntu, Windows</li>
+        <li>Languages: C++, Bash (basic)</li>
+        <li>Networking: VMware, TCP/IP, DNS, HTTP/HTTPS</li>
+        <li>Concepts: OWASP Top 10, Incident Response, Cryptography</li>
+      </ul>
+    </section>
 
-  <section id="labs" class="glass fade-in">
-    <h2>Labs</h2>
-    <ul>
-      <li>Offensive Security, Defensive Security, IR Frameworks...</li>
-    </ul>
-  </section>
+    <section class="glass fade-in" id="experience">
+      <h2>Experience</h2>
+      <p><strong>Cybersecurity Intern – Bytewise Ltd (Remote)</strong><br>June 2024 - September 2024</p>
+      <ul>
+        <li>Conducted vulnerability assessments with Nmap/Wireshark</li>
+        <li>Analyzed anomalies in network activity</li>
+        <li>Exposure to sandbox and Active Directory environments</li>
+      </ul>
+    </section>
 
-  <section id="reports" class="glass fade-in">
-    <h2>Bug Bounty Reports</h2>
-    <ul>
-      <li>IDOR – Grab, Subdomain Takeover, Token Leak, etc.</li>
-    </ul>
-  </section>
+    <section class="glass fade-in" id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>Threat Intel Automation: IOC enrichment from logs</li>
+        <li>BurpSuite Plugin: Auto token injection/session handling</li>
+        <li>Payload Collector: Toolkit for XSS/SQLi testing</li>
+      </ul>
+    </section>
 
-  <section id="certs" class="glass fade-in">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Google Cybersecurity, Cisco Intro, Ethical Hacker</li>
-    </ul>
-  </section>
+    <section class="glass fade-in" id="labs">
+      <h2>TryHackMe Labs</h2>
+      <ul>
+        <li>Offensive: OWASP Top 10, Log4Shell, Dorking</li>
+        <li>Defensive: SIEM, Phishing, IR</li>
+        <li>Fundamentals: Linux, Windows, Cryptography</li>
+      </ul>
+    </section>
 
-  <section id="achievements" class="glass fade-in">
-    <h2>Achievements</h2>
-    <ul>
-      <li>Top 1% on TryHackMe, Public Research Mentions</li>
-    </ul>
-  </section>
+    <section class="glass fade-in" id="reports">
+      <h2>Bug Bounty Reports</h2>
+      <ul>
+        <li>IDOR – Grab (Triaged)</li>
+        <li>Debug File Exposure – Wallet App (Triaged)</li>
+        <li>Subdomain Takeover – SaaS (Triaged)</li>
+        <li>Token Leak – JavaScript (Triaged)</li>
+        <li>Open Redirect, CSRF, XSS, Broken Auth (Mixed)</li>
+      </ul>
+    </section>
 
-  <section id="contact" class="glass fade-in">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
-    <p>Phone: <a href="tel:+923113595919">+92 311 3595919</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh</a></p>
-  </section>
+    <section class="glass fade-in" id="certs">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Google – Foundations of Cybersecurity (2024)</li>
+        <li>Cisco – Ethical Hacker (2025)</li>
+        <li>OS & Cybersecurity Basics, Intro to Cybersecurity</li>
+      </ul>
+    </section>
 
-  <!-- Footer -->
+    <section class="glass fade-in" id="achievements">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Top 1% on TryHackMe</li>
+        <li>Multiple Triaged Reports</li>
+        <li>Credited on Halls of Fame</li>
+        <li>Bug bounty support for beginners</li>
+      </ul>
+    </section>
+
+    <section class="glass fade-in" id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
+      <p>Phone: <a href="tel:+923113595919">+92 311 3595919</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">noaman-shaikh-2151a0216</a></p>
+    </section>
+  </main>
+
   <footer>
     <p>© 2025 Noaman Shaikh. All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
