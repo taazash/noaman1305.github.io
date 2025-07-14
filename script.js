@@ -1,40 +1,55 @@
-<!-- script.js -->
 
-// Typing Animation for index.html
-const typingEl = document.getElementById("typing");
-if (typingEl) {
-  const text = "Cybersecurity Analyst & Bug Bounty Hunter";
-  let idx = 0;
-  function typeText() {
-    if (idx < text.length) {
-      typingEl.innerHTML += text.charAt(idx);
-      idx++;
-      setTimeout(typeText, 60);
-    }
-  }
-  typeText();
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
 }
 
-// Preloader
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+// ✅ Preloader Animation
 window.addEventListener("load", () => {
-  const loader = document.querySelector(".preloader");
-  if (loader) loader.style.display = "none";
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    preloader.classList.add("fade-out");
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 1000);
+  }
 });
 
-// Fade in animation for sections
-const faders = document.querySelectorAll(".fade-in");
-const appearOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -100px 0px"
-};
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("appear");
-    observer.unobserve(entry.target);
+// ✅ Smooth Scrolling for Navigation
+const navLinks = document.querySelectorAll(".nav-links a");
+navLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const targetId = link.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - 60,
+        behavior: "smooth"
+      });
+    }
   });
-}, appearOptions);
+});
 
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
+// ✅ Reveal Section Animations on Scroll
+const allSections = document.querySelectorAll("section");
+const observerOptions = {
+  threshold: 0.1
+};
+
+const revealOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show-section");
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+allSections.forEach(section => {
+  section.classList.add("hide-section");
+  revealOnScroll.observe(section);
 });
