@@ -1,4 +1,4 @@
-/* style.css - Enhanced with extra animations, highlights, and interactive elements */
+/* style.css - Final Upgraded with Deep Visual Effects */
 
 :root {
   --bg-primary: #0a0f1c;
@@ -9,6 +9,7 @@
   --accent: #22d3ee;
   --highlight: #14b8a6;
   --neon: #00f7ff;
+  --gradient: linear-gradient(145deg, #0ea5e9, #2563eb);
 }
 
 * {
@@ -23,6 +24,7 @@ body {
   color: var(--text-light);
   scroll-behavior: smooth;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -37,25 +39,31 @@ body::before {
   animation: pulseGlow 6s ease-in-out infinite;
 }
 
-header, main, nav, footer, section {
+header {
   position: relative;
   z-index: 1;
+  text-align: center;
+  padding: 120px 20px 60px;
+  background: var(--gradient);
+  color: var(--accent);
+  animation: fadeInDown 1s ease-out;
+  border-bottom: 3px solid var(--highlight);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-header {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #0ea5e9, #111827);
-  color: var(--accent);
-  animation: fadeInDown 1.2s ease-out;
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--neon);
+  text-shadow: 0 0 10px var(--neon), 0 0 30px var(--neon);
 }
 
 .typing {
-  color: var(--neon);
-  font-size: 1.3rem;
-  font-style: italic;
+  font-size: 1.4rem;
   margin-top: 15px;
-  text-shadow: 0 0 8px var(--neon);
+  font-style: italic;
+  color: var(--highlight);
+  text-shadow: 0 0 10px var(--highlight);
 }
 
 nav {
@@ -63,41 +71,38 @@ nav {
   padding: 15px 5vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   position: sticky;
   top: 0;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 1000;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+  border-bottom: 1px solid var(--bg-accent);
 }
 
 nav a {
   color: var(--text-light);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
   position: relative;
-  padding: 6px 10px;
+  padding: 8px 14px;
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 nav a:hover,
 nav a:focus {
-  color: var(--highlight);
+  color: var(--accent);
   background: rgba(255, 255, 255, 0.05);
-}
-
-.animated-underline {
-  position: relative;
-  display: inline-block;
+  box-shadow: 0 0 6px var(--highlight);
 }
 
 .animated-underline::after {
   content: "";
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   height: 2px;
   width: 0;
   background: linear-gradient(90deg, var(--accent), var(--highlight));
@@ -109,38 +114,39 @@ nav a:focus {
 }
 
 section {
-  max-width: 900px;
-  margin: 80px auto;
+  max-width: 950px;
+  margin: 100px auto;
   background: var(--bg-secondary);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  padding: 50px 40px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  border-left: 4px solid var(--highlight);
   opacity: 0;
-  transform: translateY(60px);
+  transform: translateY(70px);
   animation: fadeInUp 1s ease-out forwards;
 }
 
 section h2 {
-  font-size: 2.2em;
-  margin-bottom: 20px;
+  font-size: 2.5em;
+  margin-bottom: 25px;
   color: var(--accent);
+  text-shadow: 0 0 5px var(--accent);
   border-bottom: 2px solid var(--bg-accent);
   padding-bottom: 10px;
-  text-shadow: 0 0 5px var(--highlight);
 }
 
 ul {
   list-style-type: square;
-  padding-left: 20px;
+  padding-left: 25px;
 }
 
 ul li {
-  margin-bottom: 12px;
-  transition: transform 0.2s;
+  margin-bottom: 14px;
+  transition: transform 0.2s ease, color 0.3s ease;
 }
 
 ul li:hover {
-  transform: translateX(5px);
+  transform: translateX(8px);
   color: var(--highlight);
 }
 
@@ -149,46 +155,47 @@ ul li:hover {
   margin-top: 20px;
   background-color: var(--bg-accent);
   color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .resume-button:hover {
   background-color: var(--highlight);
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(20, 184, 166, 0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 45px 20px;
+  background-color: #0c1220;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  border-top: 2px solid #1e293b;
 }
 
 .counter {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   margin-top: 30px;
 }
 
 .counter div {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: var(--accent);
 }
 
 .counter span {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   display: block;
   color: var(--highlight);
-}
-
-footer {
-  text-align: center;
-  padding: 40px;
-  color: var(--text-muted);
-  background-color: #0c1220;
-  font-size: 0.9rem;
-  border-top: 1px solid #1e293b;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
 }
 
 @keyframes pulseGlow {
@@ -197,12 +204,12 @@ footer {
 }
 
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(60px); }
+  0% { opacity: 0; transform: translateY(70px); }
   60% { opacity: 0.5; transform: translateY(-10px); }
   100% { opacity: 1; transform: translateY(0); }
 }
