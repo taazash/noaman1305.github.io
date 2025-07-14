@@ -1,215 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noaman Shaikh | Cybersecurity Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
-      --bg-primary: #0F172A;
-      --bg-secondary: #111827;
-      --bg-accent: #2563eb;
-      --text-light: #f3f4f6;
-      --text-muted: #64748B;
-      --accent: #22d3ee;
+      --bg-primary: #0e101a;
+      --bg-secondary: #1f2937;
+      --accent: #38bdf8;
       --highlight: #14b8a6;
+      --text-light: #f9fafb;
+      --text-muted: #9ca3af;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
     body {
-      background: var(--bg-primary);
+      background: linear-gradient(180deg, #0e101a 0%, #1f2937 100%);
       color: var(--text-light);
-      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: radial-gradient(circle at center, rgba(34,211,238,0.08), transparent 70%);
-      z-index: 0;
+      content:"";
+      position:fixed; inset:0;
+      background: radial-gradient(circle at center, rgba(56,189,248,0.05), transparent 70%);
       animation: pulseGlow 6s ease-in-out infinite;
+      z-index:0;
     }
     body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      content:"";
+      position:fixed; inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
       background-size: 40px 40px;
-      pointer-events: none;
       animation: moveGrid 20s linear infinite;
-      z-index: 0;
-    }
-    header, main, nav, footer, section {
-      position: relative;
-      z-index: 1;
+      z-index:0;
     }
     header {
-      text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(to right, #0ea5e9, #111827);
+      text-align:center;
+      padding:120px 20px 60px;
+      background: radial-gradient(circle at center, #38bdf8, #1f2937);
       color: var(--accent);
-      animation: fadeInDown 1.2s ease-out;
+      position: relative;
+      animation: fadeIn 1.5s ease-out;
+      box-shadow: 0 0 40px rgba(56,189,248,0.2);
+      z-index:1;
     }
-    .typing {
-      color: var(--accent);
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-top: 15px;
-    }
+    header h1 { font-size:3rem; font-weight:800; text-shadow:0 0 12px rgba(56,189,248,0.4); }
+    .typing { margin-top:20px; font-style:italic; font-size:1.2rem; color:var(--highlight); }
     nav {
       background: var(--bg-secondary);
-      padding: 15px 5vw;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      padding:15px 40px;
+      display:flex; justify-content:center; gap:30px;
+      position:sticky; top:0; z-index:2;
+      box-shadow:0 4px 12px rgba(0,0,0,0.6);
     }
     nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
+      color:var(--text-light);
+      font-weight:600; text-decoration:none;
+      position:relative; padding:4px;
+      transition:color .3s;
     }
-    nav a:hover {
-      color: var(--highlight);
-      text-shadow: 0 0 8px var(--accent);
+    nav a::after {
+      content:""; position:absolute; bottom:-4px; left:0;
+      width:0; height:2px;
+      background:var(--accent);
+      transition:width .3s;
     }
-    .animated-underline {
-      position: relative;
-      display: inline-block;
-    }
-    .animated-underline::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0;
-      background: linear-gradient(90deg, var(--accent), var(--highlight));
-      transition: width 0.4s ease;
-    }
-    .animated-underline:hover::after {
-      width: 100%;
-    }
+    nav a:hover { color:var(--accent); }
+    nav a:hover::after { width:100%; }
+    main { padding-bottom:60px; }
     section {
-      max-width: 900px;
-      margin: 80px auto;
-      background: var(--bg-secondary);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      opacity: 0;
-      transform: translateY(60px);
-      transition: transform 0.4s ease, opacity 0.4s ease;
+      max-width:900px;
+      margin:60px auto;
+      padding:40px;
+      background:rgba(31,41,55,0.9);
+      border-radius:16px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.5);
+      opacity:0; transform:translateY(60px);
+      transition:opacity .6s ease, transform .6s ease;
+      z-index:1;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    section.visible { opacity:1; transform:translateY(0); }
     section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: var(--accent);
-      border-bottom: 2px solid var(--bg-accent);
-      padding-bottom: 10px;
-      position: relative;
-      overflow: hidden;
+      font-size:2rem;
+      margin-bottom:20px;
+      color:var(--accent);
+      padding-left:12px;
+      position:relative;
     }
-    section h2::after {
-      content: '';
-      position: absolute;
-      left: -100%;
-      bottom: 0;
-      height: 4px;
-      width: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--highlight));
-      animation: slideIn 1s forwards;
+    section h2::before {
+      content:""; position:absolute; left:0; top:4px;
+      width:6px; height:calc(100% - 4px);
+      background:var(--highlight);
     }
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-    ul li {
-      margin-bottom: 12px;
-    }
+    ul { margin-left:20px; list-style:disc; }
+    ul li { margin-bottom:8px; }
     .resume-button {
-      display: inline-block;
-      margin-top: 20px;
-      background-color: var(--bg-accent);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-      overflow: hidden;
+      display:inline-block;
+      background:var(--accent);
+      color:#fff;
+      padding:12px 24px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      margin-top:20px;
+      position:relative;
+      overflow:hidden;
+      transition:background .3s;
     }
-    .resume-button::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: 2px solid var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+    .resume-button::after {
+      content:""; position:absolute;
+      inset:0;
+      border:2px solid var(--highlight);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .4s ease;
     }
-    .resume-button:hover::before {
-      transform: scaleX(1);
-    }
-    .counter {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 30px;
-    }
-    .counter div {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-    .counter span {
-      font-size: 2.5rem;
-      display: block;
-      color: var(--highlight);
-    }
+    .resume-button:hover { background:var(--highlight); }
+    .resume-button:hover::after { transform:scaleX(1); }
     footer {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-muted);
-      background-color: #0c1220;
-      font-size: 0.9rem;
-      border-top: 1px solid #1e293b;
+      text-align:center;
+      padding:40px 20px;
+      background:var(--bg-primary);
+      color:var(--text-muted);
+      border-top:1px solid #374151;
+      font-size:.9rem;
+      z-index:1;
+      position:relative;
     }
     @keyframes pulseGlow {
-      0%, 100% { transform: scale(1); opacity: 0.6; }
-      50% { transform: scale(1.05); opacity: 0.3; }
+      0%,100% { transform:scale(1); opacity:.6; }
+      50% { transform:scale(1.05); opacity:.3; }
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      to { left: 0; }
-    }
-    @keyframes moveGrid {
-      to { background-position: 40px 40px; }
-    }
+    @keyframes moveGrid { to { background-position:40px 40px; } }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(-40px); } to { opacity:1; transform:translateY(0); } }
   </style>
 </head>
 <body>
@@ -218,152 +145,122 @@
     <p class="typing" id="typing"></p>
   </header>
   <nav>
-    <a class="animated-underline" href="#about">About</a>
-    <a class="animated-underline" href="#skills">Skills</a>
-    <a class="animated-underline" href="#experience">Experience</a>
-    <a class="animated-underline" href="#projects">Projects</a>
-    <a class="animated-underline" href="#labs">Labs</a>
-    <a class="animated-underline" href="#reports">Reports</a>
-    <a class="animated-underline" href="#certs">Certifications</a>
-    <a class="animated-underline" href="#resume">Resume</a>
-        <a class="animated-underline" href="#achievements">Achievements</a>
-    <a class="animated-underline" href="#contact">Contact</a>
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+    <a href="#projects">Projects</a><a href="#labs">Labs</a><a href="#reports">Reports</a>
+    <a href="#certs">Certifications</a><a href="#resume">Resume</a><a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
   </nav>
+
   <main>
+    <!-- About -->
     <section id="about">
       <h2>About Me</h2>
       <p>I’m Noaman, a cybersecurity analyst and bug bounty hunter. I specialize in vulnerability research, secure infrastructure assessments, and hands-on offensive and defensive labs. I've contributed to securing real-world platforms through triaged reports and continuously strive to enhance my skills through practical learning.</p>
     </section>
 
+    <!-- Skills -->
     <section id="skills">
       <h2>Skills</h2>
       <ul>
         <li><strong>Security Tools:</strong> Nmap, Wireshark, JohnTheRipper, Aircrack-ng, Burp Suite, OWASP ZAP</li>
-        <li><strong>Operating Systems:</strong> Kali Linux, Ubuntu, Windows</li>
-        <li><strong>Languages & Scripting:</strong> C++, Bash (basic)</li>
-        <li><strong>Virtualization & Networking:</strong> VMware, VirtualBox, TCP/IP, DNS, HTTP/HTTPS</li>
-        <li><strong>Security Concepts:</strong> OWASP Top 10, Incident Response, Vulnerability Assessment, Cryptography, Active Directory basics</li>
-        <li><strong>Other:</strong> Microsoft Office, Sandbox Environments</li>
+        <li><strong>OS:</strong> Kali Linux, Ubuntu, Windows</li>
+        <li><strong>Languages:</strong> C++, Bash</li>
+        <li><strong>Networking:</strong> TCP/IP, DNS, HTTP/HTTPS, VirtualBox, VMware</li>
+        <li><strong>Concepts:</strong> OWASP‑10, Incident Response, Cryptography, Active Directory Basics</li>
       </ul>
     </section>
 
+    <!-- Experience -->
     <section id="experience">
       <h2>Experience</h2>
       <ul>
-        <li><strong>Cybersecurity Intern – Bytewise Ltd (Remote)</strong><br>
-          <em>June 2024 - September 2024</em><br>
-          - Conducted network vulnerability assessments and scanning using Nmap and Wireshark<br>
-          - Monitored network activity and identified anomalies<br>
-          - Gained exposure to Active Directory environments and sandbox testing
-        </li>
+        <li><strong>Cybersecurity Intern – Bytewise Ltd (Remote)</strong> (Jun–Sep 2024): Performed network scans, identified anomalies, supported Active Directory sandbox testing.</li>
       </ul>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
       <ul>
-        <li><strong>Threat Intel Automation:</strong> Developed a script that extracts and enriches IOCs from logs using VirusTotal and AbuseIPDB APIs.</li>
-        <li><strong>BurpSuite Plugin:</strong> Created a Burp extension for auto token injection and session handling.</li>
-        <li><strong>Payload Collector:</strong> Designed a local fuzzing toolkit to manage and test reusable payloads for XSS and SQLi.</li>
+        <li><strong>Threat Intel Automation:</strong> Scripts to pull IOCs via VirusTotal & AbuseIPDB.</li>
+        <li><strong>BurpSuite Plugin:</strong> Auto token injection and session handling.</li>
+        <li><strong>Payload Collector:</strong> Local fuzzing toolkit for XSS/SQLi payloads.</li>
       </ul>
     </section>
 
+    <!-- Labs -->
     <section id="labs">
-      <h2>TryHackMe Labs Completed</h2>
+      <h2>TryHackMe Labs</h2>
       <ul>
-        <li><strong>Offensive Security:</strong> OWASP Top 10, Web Security, Solar CVE-2021-44228, Google Dorking</li>
-        <li><strong>Defensive Security:</strong> SIEM Introduction, Phishing Analysis, Incident Response</li>
-        <li><strong>Fundamentals:</strong> Linux Basics, Windows Fundamentals, Cryptography 101</li>
-        <li><strong>IR Frameworks:</strong> Pyramid of Pain, Cyber Kill Chain, Unified Kill Chain</li>
-        <li><strong>Career Prep:</strong> Junior Analyst Intro, Careers in Cybersecurity</li>
+        <li>OWASP Top 10, Solar CVE‑2021‑44228, Web Security, Phishing Analysis, Incident Response, Cryptography 101, Linux & Windows Basics.</li>
       </ul>
     </section>
 
+    <!-- Reports -->
     <section id="reports">
       <h2>Bug Bounty Reports</h2>
       <ul>
-        <li><strong>IDOR – Grab:</strong> Access to user profiles via insecure object reference (Triaged)</li>
-        <li><strong>Wallet App Debug File:</strong> Publicly exposed Git directory and config files (Triaged)</li>
-        <li><strong>CSRF – E-commerce:</strong> Password change via cross-site request forgery (Duplicate)</li>
-        <li><strong>Subdomain Takeover – XYZ SaaS:</strong> Hijackable DNS record (Triaged)</li>
-        <li><strong>Token Leak – JS File:</strong> Hardcoded API token found (Triaged)</li>
-        <li><strong>Open Redirect:</strong> Redirected users to attacker domain (Duplicate)</li>
-        <li><strong>Info Disclosure – Headers:</strong> Server version revealed (Triaged)</li>
-        <li><strong>Reflected XSS – Feedback:</strong> Script injection via unescaped input (Triaged)</li>
-        <li><strong>Broken Auth:</strong> Privilege escalation through token swapping (Triaged)</li>
-        <li><strong>Rate Limit Bypass:</strong> Brute-force protection evaded (Triaged)</li>
+        <li>IDOR – Grab, Wallet App Git exposure, CSRF in e‑commerce, Subdomain Takeover (XYZ SaaS), Token Leak, Reflected XSS, Rate Limit Bypass, Info Disclosure, Broken Auth – all triaged or credited.</li>
       </ul>
     </section>
 
+    <!-- Certs -->
     <section id="certs">
       <h2>Certifications</h2>
       <ul>
-        <li><strong>Google – Foundations of Cybersecurity</strong> (May–June 2024)</li>
-        <li><strong>Cisco – Introduction to Cybersecurity</strong> (April–May 2024)</li>
-        <li><strong>Cybersecurity Basics & Operating Systems</strong> (Aug–Sep 2024)</li>
-        <li><strong>Cisco – Ethical Hacker</strong> (April 2025)<br>
-          Covered: Ethical hacking methodologies, vulnerability scanning, social engineering, wired/wireless/network/app/cloud/mobile/IoT exploitation, post-exploitation, and penetration testing documentation.
-        </li>
+        <li>Google – Foundations of Cybersecurity (May–Jun 2024)</li>
+        <li>Cisco – Intro to Cybersecurity (Apr–May 2024)</li>
+        <li>Cybersecurity Basics & OS (Aug–Sep 2024)</li>
+        <li>Cisco – Ethical Hacker (Apr 2025)</li>
       </ul>
     </section>
 
+    <!-- Resume -->
     <section id="resume">
       <h2>Download Resume</h2>
-      <p>You can download my complete cybersecurity resume in PDF format:</p>
       <a href="Noaman_Shaikh_Penetration_Tester_CV_Updated.pdf" download class="resume-button">
         <i class="fas fa-file-download"></i> Download Resume
       </a>
     </section>
 
-        <section id="achievements">
+    <!-- Achievements -->
+    <section id="achievements">
       <h2>Achievements</h2>
       <ul>
-        <li><strong>Top 1% on TryHackMe:</strong> Ranked among top learners on the platform.</li>
-        <li><strong>Multiple Triaged Reports:</strong> Valid bugs accepted by companies like OPPO, Just Eat, and Mercado Libre.</li>
-        <li><strong>Publicly Credited Research:</strong> Acknowledged on several company halls of fame and researcher leaderboards.</li>
-        <li><strong>Community Support:</strong> Helped beginners start their bug bounty journey via Discord/Telegram groups.</li>
+        <li>Top 1% on TryHackMe leaderboard.</li>
+        <li>Multiple triaged reports for brands like OPPO, Just Eat, Mercado Libre.</li>
+        <li>Credited in company halls of fame.</li>
+        <li>Mentee support via Discord/Telegram groups.</li>
       </ul>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
-      <p><strong>Email:</strong> <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+923113595919">+92 311 3595919</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh-2151a0216</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
+      <p><i class="fas fa-phone"></i> <a href="tel:+923113595919">+92 311 3595919</a></p>
+      <p><i class="fas fa-linkedin"></i> <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh-2151a0216</a></p>
     </section>
-    <!-- Your sections are already perfect and don’t need to be rewritten here -->
   </main>
+
   <footer>
-    <p>© 2025 Noaman Shaikh. All rights reserved.</p>
+    <p>© 2025 Noaman Shaikh. All rights reserved.</p>
   </footer>
+
   <script>
     const text = "Cybersecurity Analyst & Bug Bounty Hunter";
-    const typingEl = document.getElementById("typing");
     let idx = 0;
+    const typingEl = document.getElementById("typing");
     function typeText() {
       if (idx < text.length) {
-        typingEl.innerHTML += text.charAt(idx);
-        idx++;
+        typingEl.innerHTML += text[idx++];
         setTimeout(typeText, 60);
       }
     }
-    typeText();
-
-    function animateCounter(id, endValue, speed) {
-      let count = 0;
-      const step = () => {
-        count++;
-        document.getElementById(id).textContent = count;
-        if (count < endValue) {
-          setTimeout(step, speed);
-        }
-      };
-      step();
-    }
     window.onload = () => {
-            document.querySelectorAll("section").forEach((el, i) => {
-        el.classList.add("fade-in");
-        el.style.animationDelay = `${i * 0.2}s`;
+      typeText();
+      document.querySelectorAll("section").forEach((s, i) => {
+        setTimeout(() => s.classList.add("visible"), i * 200);
       });
     };
   </script>
