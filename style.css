@@ -59,6 +59,7 @@ html, body {
   padding: 20px;
   margin: 60px auto;
   max-width: 1000px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* Navigation */
@@ -72,6 +73,7 @@ html, body {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  animation: slideDown 1s ease-out;
 }
 
 .nav-links {
@@ -84,33 +86,49 @@ html, body {
   color: #f8fafc;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s;
+  position: relative;
 }
 
-.nav-links a:hover {
-  color: #38bdf8;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #38bdf8;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 800;
   color: #38bdf8;
+  animation: popIn 1.5s ease;
+  content: "Noaman's Portfolio";
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
   padding: 120px 20px 60px;
-  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  background: radial-gradient(circle, #1e3a8a, #0f172a);
+  animation: fadeInUp 1.2s ease-out;
 }
 
 .hero h2 {
   font-size: 3rem;
   color: #f8fafc;
+  animation: popIn 1.3s ease-out;
 }
 
 .highlight {
   color: #22d3ee;
+  text-shadow: 0 0 8px #22d3ee;
 }
 
 .btn-glass {
@@ -122,31 +140,49 @@ html, body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.4);
 }
 
 .btn-glass:hover {
   background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,99,235,0.6);
 }
 
 /* Sections */
 section {
   padding: 60px 10vw;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 section h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #22d3ee;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #22d3ee, #2563eb);
+  margin-top: 8px;
 }
 
 section ul {
   padding-left: 20px;
+  list-style: square;
 }
 
 section ul li {
   margin-bottom: 10px;
+  color: #e0f2fe;
 }
 
 /* Footer */
@@ -156,6 +192,7 @@ footer {
   font-size: 0.9rem;
   color: #94a3b8;
   background: #0f172a;
+  animation: fadeIn 2s ease;
 }
 
 /* Animations */
@@ -168,6 +205,21 @@ footer {
 .fade-in.appear {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */
