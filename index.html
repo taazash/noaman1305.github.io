@@ -1,4 +1,89 @@
-r 0.3s ease, text-shadow 0.3s ease;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noaman Shaikh | Cybersecurity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #0F172A;
+      --bg-secondary: #111827;
+      --bg-accent: #2563eb;
+      --text-light: #f3f4f6;
+      --text-muted: #64748B;
+      --accent: #22d3ee;
+      --highlight: #14b8a6;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(34,211,238,0.08), transparent 70%);
+      z-index: 0;
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      animation: moveGrid 20s linear infinite;
+      z-index: 0;
+    }
+    header, main, nav, footer, section {
+      position: relative;
+      z-index: 1;
+    }
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to right, #0ea5e9, #111827);
+      color: var(--accent);
+      animation: fadeInDown 1.2s ease-out;
+    }
+    .typing {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-top: 15px;
+    }
+    nav {
+      background: var(--bg-secondary);
+      padding: 15px 5vw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
     }
     nav a:hover {
       color: var(--highlight);
