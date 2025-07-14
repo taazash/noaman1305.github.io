@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,41 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noaman Shaikh | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src
-="script.js"></script>
+  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="preloader">
-    <span class="loader"></span>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="loader"></div>
   </div>
-  <header class="glass">
-    <nav class="nav-container">
-      <h1 class="logo">Noaman</h1>
+
+  <!-- Navigation -->
+  <header class="nav-container">
+    <div class="logo">Noaman Shaikh</div>
+    <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="labs.html">Labs</a></li>
-        <li><a href="reports.html">Reports</a></li>
-        <li><a href="certifications.html">Certifications</a></li>
-        <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#labs">Labs</a></li>
+        <li><a href="#reports">Reports</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="main-content">
-    <section class="hero">
-      <h2>Hello, I'm <span class="highlight">Noaman Shaikh</span></h2>
-      <p class="typing" id="typing"></p>
-      <a class="btn-glass" href="resume.html">Download Resume</a>
-    </section>
-  </main>
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Cybersecurity Analyst & <span class="highlight">Bug Bounty Hunter</span></h2>
+    <a href="#contact" class="btn-glass">Get In Touch</a>
+  </section>
 
-  <footer class="glass">
+  <!-- Sections -->
+  <section id="about" class="glass fade-in">
+    <h2>About Me</h2>
+    <p>I’m Noaman, a cybersecurity analyst and bug bounty hunter...</p>
+  </section>
+
+  <section id="skills" class="glass fade-in">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Security Tools:</strong> Nmap, Wireshark...</li>
+      <li><strong>Operating Systems:</strong> Kali Linux...</li>
+      <li><strong>Languages:</strong> C++, Bash (basic)</li>
+    </ul>
+  </section>
+
+  <section id="experience" class="glass fade-in">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Cybersecurity Intern – Bytewise Ltd:</strong> Network scanning, AD exposure...</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="glass fade-in">
+    <h2>Projects</h2>
+    <ul>
+      <li>Threat Intel Automation, BurpSuite Plugin, Payload Collector</li>
+    </ul>
+  </section>
+
+  <section id="labs" class="glass fade-in">
+    <h2>Labs</h2>
+    <ul>
+      <li>Offensive Security, Defensive Security, IR Frameworks...</li>
+    </ul>
+  </section>
+
+  <section id="reports" class="glass fade-in">
+    <h2>Bug Bounty Reports</h2>
+    <ul>
+      <li>IDOR – Grab, Subdomain Takeover, Token Leak, etc.</li>
+    </ul>
+  </section>
+
+  <section id="certs" class="glass fade-in">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Google Cybersecurity, Cisco Intro, Ethical Hacker</li>
+    </ul>
+  </section>
+
+  <section id="achievements" class="glass fade-in">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Top 1% on TryHackMe, Public Research Mentions</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="glass fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:nomanshykh641@gmail.com">nomanshykh641@gmail.com</a></p>
+    <p>Phone: <a href="tel:+923113595919">+92 311 3595919</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/noaman-shaikh-2151a0216" target="_blank">linkedin.com/in/noaman-shaikh</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
     <p>© 2025 Noaman Shaikh. All rights reserved.</p>
   </footer>
 </body>
