@@ -1,16 +1,15 @@
-/* === Variables and Base Styles (No major change needed here) === */
+/* === Variables and Base Styles (Updated for Cinematic Look) === */
 :root {
-    --bg-primary: #0a0f1c; /* Deep Space Blue */
-    --bg-secondary: #111827; /* Darker Slate */
-    --accent: #22d3ee; /* Cyan/Aqua - High Visibility */
-    --highlight: #14b8a6; /* Teal - Secondary Accent */
-    --text-light: #f3f4f6;
-    --text-muted: #9ca3af;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.15);
-    /* NEW: Box Shadow variables for depth */
-    --shadow-depth: 0 15px 35px rgba(0, 0, 0, 0.6);
-    --shadow-light: 0 0 15px rgba(34, 211, 238, 0.2); /* Soft accent glow */
+    /* Colors inspired by the image's deep reds, oranges, and purples */
+    --bg-primary: #1a080d; /* Very deep, dark red/black */
+    --bg-secondary: #2c0f16;
+    --accent: #ff9900; /* Warm Orange - For Highlights */
+    --highlight: #b20000; /* Deep Red/Maroon - For Drama */
+    --text-light: #f7f7f7;
+    --text-muted: #d4a9a9; /* Soft muted text */
+    /* NEW: High contrast shadow for text punch */
+    --shadow-text: 1px 1px 0 #000, 2px 2px 0 var(--highlight);
+    --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.9);
 }
 
 * {
@@ -18,43 +17,26 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    /* Using 'Inter' is good, but adding a fallback for safety */
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
     background-color: var(--bg-primary);
     color: var(--text-light);
     overflow-x: hidden;
-    /* Adding a subtle background texture/gradient for depth */
-    background: radial-gradient(circle at top left, rgba(20, 184, 166, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.08) 0%, transparent 30%),
-                var(--bg-primary);
-    min-height: 100vh;
+    /* Add a subtle dark texture for grit */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAACXBIWXMAAAsTAAALEwEAmpwYAAAABmJLR0QA/wD/AP+gvaeTAAAADklEQVQImWNgYGDgACkAAABTAgIBy0uVdwAAAABJRU5ErkJggg==');
 }
 
-/* === Preloader Animation (Improved Spin and Color) === */
-.preloader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: var(--bg-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    /* Added a transition for smooth fade-out (requires JavaScript to remove/hide class) */
-    transition: opacity 0.5s ease-out;
-}
-
+/* Preloader (Kept simple and high contrast) */
 .loader {
-    width: 70px; /* Slightly bigger */
-    height: 70px;
+    width: 65px;
+    height: 65px;
     border: 6px solid var(--text-muted);
     border-top: 6px solid var(--accent);
-    border-right: 6px solid var(--highlight); /* Two colors for a more complex look */
+    border-right: 6px solid var(--highlight);
     border-radius: 50%;
-    animation: spin 1s cubic-bezier(0.5, 0.2, 0.5, 0.8) infinite; /* Changed animation timing for more interest */
+    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -62,309 +44,188 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* === Navbar (More prominent glass effect, improved interaction) === */
+/* === Navbar (Minimalist, Low-Profile, High Contrast Text) === */
 .nav-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    /* Switched to glass for a premium, non-intrusive look */
-    background: rgba(17, 24, 39, 0.85); /* Slightly transparent secondary background */
-    backdrop-filter: blur(12px); /* Stronger blur for glass effect */
+    background: transparent; /* Initially transparent over Hero */
     z-index: 1000;
-    padding: 12px 60px; /* More vertical padding, wider horizontal padding */
+    padding: 20px 60px; /* Padding similar to the image's top edge */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); /* Softer shadow */
-    transition: background 0.3s;
+    transition: background 0.4s, padding 0.4s;
 }
 
-/* Optional: Shrink/change background on scroll (requires JS to add a class) */
+/* Requires JS to add this class on scroll */
 .nav-scrolled {
-    padding: 8px 60px;
-    background: var(--bg-secondary);
-    box-shadow: var(--shadow-depth);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 60px;
+    box-shadow: var(--shadow-deep);
 }
 
 .logo {
-    font-size: 1.6rem; /* Bigger logo */
-    font-weight: 800; /* Bolder */
-    color: var(--accent);
-    text-shadow: 0 0 5px var(--accent); /* Subtle glow */
-    letter-spacing: 1px;
+    font-size: 1.2rem; /* Smaller logo, minimal presence */
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px; /* Wider gap for better spacing */
+    gap: 25px;
 }
 
 .nav-links li a {
-    color: var(--text-muted); /* Start with muted color */
+    color: var(--text-light);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 5px 0;
     position: relative;
-    padding: 10px 0; /* Vertical padding only */
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
-/* Underline Animation (More modern and less blocky) */
-.nav-links li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--highlight);
-    transition: width 0.4s ease-out;
+    transition: color 0.3s;
+    /* Adding subtle text shadow for better contrast against background image */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
 .nav-links li a:hover {
-    color: var(--text-light); /* Highlight text color */
-    text-shadow: 0 0 8px var(--highlight);
+    color: var(--accent); /* Highlight on hover */
 }
 
-.nav-links li a:hover::after,
-.nav-links li a.active::after { /* Active class for current page */
-    width: 100%;
-}
-
-
-/* === Hero Section (More dramatic and cinematic) === */
+/* === Hero Section (The Dramatic Full-Screen View) === */
 .hero {
     height: 100vh;
-    /* Deeper, more complex gradient */
-    background: linear-gradient(135deg, var(--bg-primary) 0%, #1e293b 70%);
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start; /* Align content to the left side */
+    text-align: left;
     position: relative;
-    padding: 20px;
-    /* Add a subtle dark overlay for better text contrast */
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+    padding: 0 80px; /* Wide padding for cinematic feel */
+    
+    /* BACKGROUND IMAGE STYLES - IMPORTANT */
+    background-image: url('placeholder-dramatic-bg.jpg'); /* **CHANGE THIS PATH** */
+    background-size: cover;
+    background-position: center;
+    
+    /* Overlay to match the dramatic mood (dark red/purple tint) */
+    isolation: isolate;
+    /* Subtle vertical gradient for depth */
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%),
+                      linear-gradient(200deg, rgba(178, 0, 0, 0.3) 0%, rgba(20, 0, 40, 0.6) 80%);
 }
 
 .hero-content {
-    max-width: 900px;
-    animation: fadeInUp 1.2s ease-out both;
-    position: relative;
-    z-index: 2; /* Ensure content is above any potential background elements */
+    max-width: 500px; /* Content concentrated on the left */
+    z-index: 5;
+    animation: slideInLeft 1.5s ease forwards;
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-100px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
 .hero h1 {
-    font-size: 4.5rem; /* Larger and more impactful */
-    margin-bottom: 20px;
+    font-size: 4.5rem; /* Massive main heading */
+    margin-bottom: 10px;
     font-weight: 900;
+    line-height: 1.1;
     letter-spacing: -1px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-shadow: var(--shadow-text);
 }
 
-.hero .highlight {
+.hero .highlight-text {
+    font-size: 1.6rem;
+    font-weight: 500;
     color: var(--accent);
-    animation: glow 3s ease-in-out infinite alternate; /* Slower, more impactful glow */
-    text-shadow: 0 0 15px var(--accent); /* Initial shadow for impact */
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); }
-    to { text-shadow: 0 0 15px var(--highlight), 0 0 30px var(--highlight); }
-}
-
-.typing {
-    font-size: 1.5rem; /* Larger font */
-    font-weight: 300;
-    color: var(--text-muted);
     margin-bottom: 30px;
-    border-right: 2px solid var(--accent); /* Added a blinking cursor effect */
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
-}
-/* You'll need to update the JavaScript to handle the typing text itself */
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--accent); }
+    display: block;
+    line-height: 1.4;
 }
 
 .explore-button {
-    background: linear-gradient(45deg, var(--accent), var(--highlight)); /* Gradient for premium feel */
+    background: var(--accent);
     color: #000;
-    padding: 14px 30px; /* Bigger button */
+    padding: 14px 35px;
     border: none;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 2px; /* Sharp corners */
     font-weight: 700;
     text-decoration: none;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.5); /* Shadow for lift */
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-deep);
+    transition: background 0.3s, transform 0.3s;
 }
 
 .explore-button:hover {
-    transform: translateY(-3px); /* Lift effect */
-    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.7); /* Stronger shadow on hover */
+    background: var(--highlight);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(178, 0, 0, 0.7);
 }
 
-/* Subtle ripple effect on hover */
-.explore-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: width 0.4s ease-out, height 0.4s ease-out;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+/* === General Section Styles (Clean and flat below the hero) === */
+
+section {
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.explore-button:hover::before {
-    width: 300%;
-    height: 300%;
-}
-
-
-/* === Section Styles (Enhanced Glassmorphism and Spacing) === */
-.glass {
-    /* Kept the basic glass properties */
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px); /* Stronger blur */
-    border: 1px solid var(--glass-border);
-    border-radius: 20px; /* Slightly rounder corners */
-    padding: 50px; /* More padding */
-    margin: 120px auto; /* More margin */
-    max-width: 1000px; /* Wider section */
-    box-shadow: var(--shadow-depth); /* Use depth shadow variable */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.glass:hover {
-    transform: translateY(-5px); /* Subtle lift on hover */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6), var(--shadow-light); /* Added accent glow on hover */
+section.about-section {
+    background-color: var(--bg-secondary);
+    border-bottom: 2px solid var(--highlight);
+    box-shadow: var(--shadow-deep);
 }
 
 section h2 {
-    font-size: 2.5rem; /* Bigger section titles */
-    margin-bottom: 25px;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
     color: var(--accent);
-    border-bottom: 3px solid var(--highlight); /* Thicker bottom border */
-    padding-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-weight: 800;
 }
 
-/* List Style (More modern marker) */
-ul {
-    padding-left: 0; /* Remove default list padding */
-    list-style: none;
-    line-height: 1.8;
-}
-
-ul li {
-    margin-bottom: 12px;
-    position: relative;
-    padding-left: 25px; /* Space for custom marker */
-}
-
-/* Custom bullet point with accent color */
-ul li::before {
-    content: '▶'; /* Use a modern arrow or symbol */
-    position: absolute;
-    left: 0;
-    color: var(--highlight);
-    font-size: 1rem;
-    line-height: 1.8;
-}
-
-/* General paragraph styles */
 p {
+    line-height: 1.8;
+    color: var(--text-muted);
     font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-light);
     margin-bottom: 20px;
 }
 
-/* === Resume Button (Similar to Explore, but with a secondary accent) === */
-.resume-button {
-    display: inline-block;
-    margin-top: 30px;
-    background: linear-gradient(45deg, var(--highlight), #149c9a); /* Gradient using secondary color */
-    color: #000;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* List Style (Simple and formal) */
+ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-.resume-button:hover {
-    background: linear-gradient(45deg, #149c9a, var(--highlight));
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.7);
+ul li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+    color: var(--text-light);
 }
 
-/* === Footer (Slightly more defined) === */
+ul li::before {
+    content: '—'; /* Use a dash marker */
+    position: absolute;
+    left: 0;
+    color: var(--highlight);
+    font-weight: bold;
+}
+
+/* === Footer (Dark and defined) === */
 footer {
     text-align: center;
-    padding: 60px 20px; /* More vertical space */
+    padding: 50px 20px;
     color: var(--text-muted);
-    background-color: var(--bg-secondary); /* Used secondary color for footer */
-    font-size: 1rem;
-    border-top: 1px solid var(--glass-border);
-}
-
-/* === Fade-in Animation (Staggered and Smoother) === */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px); /* Smaller initial offset */
-    animation: fadeInUp 0.8s ease-out forwards; /* Faster, smoother animation */
-    /* Add an optional data-delay attribute to HTML elements for staggered loading */
-    animation-delay: var(--animation-delay, 0s);
-}
-
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* === Media Queries for Responsiveness (Crucial for a professional look) === */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
-
-    .nav-links {
-        margin-top: 10px;
-        gap: 15px;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .typing {
-        font-size: 1.2rem;
-    }
-
-    .glass {
-        padding: 30px;
-        margin: 80px 20px;
-    }
-
-    section h2 {
-        font-size: 2rem;
-    }
+    background-color: #0d0406;
+    font-size: 0.9rem;
+    border-top: 5px solid var(--highlight);
 }
