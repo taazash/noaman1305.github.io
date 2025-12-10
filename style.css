@@ -1,13 +1,14 @@
-/* === Variables and Base Styles (Hacking Console Theme) === */
+/* === Variables and Base Styles (Luxury Cyber Theme) === */
 :root {
-    --bg-primary: #000000; /* Pure Black */
-    --bg-secondary: #0a0a0a; /* Off Black */
-    --accent: #00ff41; /* Neon Green - Primary Hacking Color */
-    --highlight: #00aaff; /* Cyber Blue - Secondary Highlight */
-    --text-light: #e0ffff; /* Light Neon Blue/Green Text */
-    --text-muted: #005511; /* Dark Green for Subtle Details */
-    --shadow-neon: 0 0 10px var(--accent), 0 0 20px var(--accent); /* Strong Neon Glow */
-    --font-mono: 'Space Mono', 'Roboto Mono', monospace; /* Monospace Hacking Font */
+    --bg-primary: #0a001a; 
+    --bg-secondary: #1a082c; 
+    --accent: #ff00ff; /* Bright Neon Magenta/Pink */
+    --highlight: #8a2be2; /* Blue-Violet/Electric Purple */
+    --text-light: #f4f4f6;
+    --text-muted: #c0c0d0;
+    --shadow-neon: 0 0 15px var(--accent), 0 0 30px rgba(255, 0, 255, 0.4); 
+    --shadow-deep: 0 10px 40px rgba(0, 0, 0, 0.8);
+    --font-sans: 'Inter', sans-serif; 
 }
 
 /* Base Styles */
@@ -16,17 +17,17 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: var(--font-mono); 
+    font-family: var(--font-sans); 
 }
 
 body {
     background-color: var(--bg-primary);
     color: var(--text-light);
     overflow-x: hidden;
-    /* Subtle background grid pattern for tech look */
-    background-image: linear-gradient(to right, var(--text-muted) 1px, transparent 1px),
-                      linear-gradient(to bottom, var(--text-muted) 1px, transparent 1px);
-    background-size: 20px 20px;
+    background: radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.08) 0%, transparent 40%),
+                var(--bg-primary);
+    background-image: none;
 }
 
 /* === Preloader Animation === */
@@ -45,10 +46,10 @@ body {
     width: 80px; 
     height: 80px;
     border: 8px solid var(--text-muted);
-    border-top: 8px solid var(--accent);
-    border-right: 8px solid var(--highlight);
+    border-top: 8px solid var(--highlight);
+    border-right: 8px solid var(--accent);
     border-radius: 50%;
-    animation: spin 0.8s linear infinite, colorShift 3s infinite alternate; 
+    animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; 
 }
 
 @keyframes spin {
@@ -56,221 +57,249 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-@keyframes colorShift {
-    0% { border-top-color: var(--accent); }
-    50% { border-top-color: var(--highlight); }
-    100% { border-top-color: var(--accent); }
-}
-
-/* === Navbar (Minimalist Command Line) === */
+/* === Navbar (Sleek and Subdued) === */
 .nav-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(10, 0, 26, 0.95);
+    backdrop-filter: blur(5px);
     z-index: 1000;
-    padding: 15px 40px;
+    padding: 15px 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 25px rgba(0, 255, 65, 0.1); 
-    border-bottom: 2px solid var(--accent); 
-    animation: slideDown 1s ease forwards;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
+    border-bottom: 1px solid rgba(255, 0, 255, 0.2); 
 }
 
 .logo {
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--text-light);
+    letter-spacing: 0px; 
+}
+
+.logo .subtle-glow {
     color: var(--accent);
-    text-shadow: var(--shadow-neon);
-    letter-spacing: 5px; 
+    text-shadow: 0 0 8px var(--accent);
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 35px;
+    gap: 25px;
 }
 
 .nav-links li a {
-    color: var(--text-light);
+    color: var(--text-muted);
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     padding: 8px 12px;
     border-radius: 6px;
-    transition: background 0.3s, color 0.3s;
-    text-shadow: 0 0 5px var(--highlight);
+    text-transform: uppercase;
+    transition: color 0.3s;
 }
 
 .nav-links li a:hover {
-    background: rgba(0, 255, 65, 0.1);
     color: var(--accent);
-    text-shadow: var(--shadow-neon);
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
 
-/* === Hero Section (The Main Console) === */
+/* === Hero Section (The Dramatic Focus) === */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; 
     text-align: left; 
-    padding: 20px;
+    padding: 0 80px; 
     position: relative;
     
     /* ---------------------------------------------------------------------- */
-    /* UPDATED: Blue/Green Background Image URL */
+    /* *** APNA LOCAL HERO BACKGROUND IMAGE YAHAN DAALEIN (Option 1 Circuitry) *** */
     /* ---------------------------------------------------------------------- */
     background: 
         /* Overlay: Darkens the image */
-        linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%), 
-        /* Neon Grid Effect (Halki si roshni) */
-        radial-gradient(circle at 10% 90%, rgba(0, 255, 65, 0.1) 0%, transparent 40%),
-        /* Blue/Green Image URL - Chosen image */
-        url('http://googleusercontent.com/image_collection/image_retrieval/17023726559956901908_0') center/cover;
+        linear-gradient(rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 100%), 
+        /* Neon Glow */
+        radial-gradient(circle at 10% 90%, rgba(255, 0, 255, 0.1) 0%, transparent 40%),
+        /* BACKGROUND PATH HERE */
+        url('images/hero_purple_circuitry.jpg') center/cover;
+    
+    overflow: hidden; 
 }
 
 .hero-content {
-    max-width: 900px;
-    animation: fadeInConsole 2s ease-out both; 
-    border: 1px solid var(--text-muted); /* Console frame */
-    padding: 40px;
+    max-width: 550px; 
+    z-index: 10;
+    animation: slideInUp 1.2s ease forwards;
 }
 
-@keyframes fadeInConsole {
-    0% { opacity: 0; filter: blur(10px); }
-    100% { opacity: 1; filter: blur(0); }
+@keyframes slideInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero .pre-heading {
+    font-size: 1rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: var(--accent);
-    text-shadow: var(--shadow-neon);
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.hero .highlight {
-    color: var(--highlight);
-    text-shadow: 0 0 10px var(--highlight);
-    animation: glitchText 1.5s infinite alternate; 
-}
-
-@keyframes glitchText {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(4px, -4px); text-shadow: 0 0 5px var(--accent); }
-    60% { transform: translate(-1px, 1px); }
-    80% { transform: translate(3px, -3px); }
-    100% { transform: translate(0); }
-}
-
-.typing {
-    font-size: 1.2rem;
+    margin-bottom: 25px;
+    font-weight: 800;
+    line-height: 1.2;
     color: var(--text-light);
-    margin-bottom: 30px;
-    white-space: pre; 
-    border-right: 3px solid var(--accent); 
-    animation: blink-caret 0.5s step-end infinite;
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--accent); }
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
 }
-
 
 .explore-button {
-    background: var(--accent);
-    color: var(--bg-primary);
-    padding: 10px 20px;
-    border-radius: 0; 
-    font-weight: 600;
+    background: linear-gradient(90deg, #ff00ff, #8a2be2); 
+    color: var(--text-light);
+    padding: 15px 35px;
+    border-radius: 8px; 
+    font-weight: 700;
     text-transform: uppercase;
-    box-shadow: var(--shadow-neon);
-    border: 1px solid var(--accent);
-    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 30px rgba(255, 0, 255, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
 }
 
 .explore-button:hover {
-    background: transparent;
-    color: var(--accent);
-    box-shadow: 0 0 30px var(--highlight);
-    transform: scale(1.02);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(138, 43, 226, 0.7);
 }
 
-/* === Section Styles (Data Blocks) === */
+/* === Floating 3D Lock Visual === */
+.lock-visual {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 350px; 
+    height: 350px;
+    
+    /* ---------------------------------------------------------------------- */
+    /* *** APNA LOCAL LOCK IMAGE PATH YAHAN DAALEIN (MASLAN: 'images/lock_3d.png') *** */
+    /* ---------------------------------------------------------------------- */
+    background-image: url('images/lock_visual.png'); 
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    animation: float 5s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(-50%) translateY(0px); }
+    100% { transform: translateY(-50%) translateY(-15px); }
+}
+
+/* === Side Stats Box (60 Hours) === */
+.stats-box {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    width: 200px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05); 
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+    z-index: 10;
+    text-align: center;
+}
+
+.stats-box .number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+    line-height: 1;
+}
+
+.stats-box .label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* === General Section Styles (Clean Blocks) === */
 section {
-    padding: 80px 40px;
+    padding: 100px 60px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.glass {
-    background: var(--bg-secondary);
-    border: 1px solid var(--accent);
-    border-radius: 0;
-    padding: 40px;
-    margin: 80px auto;
-    max-width: 960px;
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); 
-    transition: all 0.4s ease;
+.data-block {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 50px;
+    margin: 40px auto;
+    box-shadow: var(--shadow-deep);
+    border-top: 2px solid var(--highlight);
+    transition: transform 0.3s;
 }
 
-.glass:hover {
+.data-block:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 25px var(--accent); 
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), 0 0 15px var(--accent);
 }
 
 section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: var(--highlight);
-    border-bottom: 1px dashed var(--accent); 
-    padding-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 600;
-}
-
-p {
-    line-height: 1.7;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
     color: var(--text-light);
-    font-size: 1rem;
-    margin-bottom: 20px;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 10px;
+    text-transform: capitalize;
+    font-weight: 700;
 }
 
+/* List/Points Style */
 ul {
-    padding-left: 0;
-    line-height: 1.7;
     list-style: none;
+    padding-left: 0;
 }
 
 ul li {
-    margin-bottom: 8px;
-    color: var(--text-light);
+    margin-bottom: 15px;
+    color: var(--text-muted);
     position: relative;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 ul li::before {
-    content: '> '; 
+    content: '★'; 
     position: absolute;
     left: 0;
-    color: var(--accent);
-    font-weight: bold;
+    color: var(--highlight);
+    font-size: 1.2rem;
 }
 
-/* === Resume Button (The System Download) === */
+/* === Resume Button === */
 .resume-button {
     display: inline-block;
     margin-top: 20px;
     background-color: var(--highlight);
-    color: var(--bg-primary);
+    color: var(--text-light);
     padding: 10px 20px;
-    border-radius: 0;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
@@ -285,33 +314,12 @@ ul li::before {
     transform: scale(1.05);
 }
 
-/* === Content Images (Cyber Look) === */
-.console-image {
-    width: 100%; 
-    max-width: 600px; 
-    height: auto;
-    display: block;
-    margin: 20px auto; 
-    border: 2px solid var(--accent); 
-    border-radius: 0; 
-    box-shadow: 0 0 15px var(--accent), inset 0 0 10px rgba(0, 255, 65, 0.5);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2) 50%, transparent 50%);
-    background-size: 100% 4px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.console-image:hover {
-    transform: scale(1.01);
-    border-color: var(--highlight);
-    box-shadow: 0 0 25px var(--highlight);
-}
-
-/* === Footer (System Status Line) === */
+/* === Footer === */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
     color: var(--text-muted);
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
     font-size: 0.9rem;
-    border-top: 1px solid var(--accent);
+    border-top: 1px solid var(--highlight);
 }
