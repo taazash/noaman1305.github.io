@@ -1,7 +1,7 @@
 /*
 ===================================================================
 ULTIMATE CYBER PROTECTION THEME (LockHive Style)
-Colors: Deep Purple, Neon Magenta, Cyber Violet
+Targeted Files: Cyber_bg.jpg, lock-with-background_113134-1317.jpg
 ===================================================================
 */
 
@@ -123,18 +123,14 @@ body {
     padding: 0 80px; 
     position: relative;
     
-    /* === HERO BACKGROUND SETTINGS (Option 1: Deep Purple Circuitry) === */
+    /* === HERO BACKGROUND: Cyber_bg.jpg === */
     background: 
         /* Overlay: Darkens the image */
         linear-gradient(rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 100%), 
         /* Neon Glow */
         radial-gradient(circle at 10% 90%, rgba(255, 0, 255, 0.1) 0%, transparent 40%),
-        /* OPTION A: Use online URL (as suggested earlier): 
-           url('http://googleusercontent.com/image_collection/image_retrieval/17023726559956901908_4') center/cover;
-           
-           OPTION B: Use Local File (recommended for GitHub): 
-        */
-        url('images/hero_purple_circuitry.jpg') center/cover;
+        /* **LOCAL PATH:** Cyber_bg.jpg */
+        url('Cyber_bg.jpg') center/cover;
     
     overflow: hidden; 
 }
@@ -147,7 +143,7 @@ body {
 
 @keyframes slideInUp {
     0% { opacity: 0; transform: translateY(50px); }
-    100% { opacity: 1; transform: translateY(0); }
+    100% { transform: translateY(0); }
 }
 
 .hero .pre-heading {
@@ -201,18 +197,15 @@ body {
     width: 350px; 
     height: 350px;
     
-    /* === 3D LOCK IMAGE SETTINGS === */
-    /* Yahan Lock/Shield ki PNG file ka path daalein.
-       OPTION A (Online URL - Option A: Glowing Check):
-       url('http://googleusercontent.com/image_collection/image_retrieval/14712164004211607704_0');
-       
-       OPTION B (Local File - RECOMMENDED):
-    */
-    background-image: url('images/lock_visual.png'); 
+    /* === 3D LOCK IMAGE SETTINGS: lock-with-background_113134-1317.jpg === */
+    /* **LOCAL PATH:** lock-with-background_113134-1317.jpg */
+    background-image: url('lock-with-background_113134-1317.jpg'); 
     
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    /* Since this is a JPG, the background might not be fully transparent, 
+       but we keep the opacity low for the neon effect. */
+    opacity: 0.9; 
     animation: float 5s ease-in-out infinite alternate;
 }
 
