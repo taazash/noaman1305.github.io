@@ -1,223 +1,370 @@
-/* === Variables and Base Styles === */
+/* === Variables and Base Styles (No major change needed here) === */
 :root {
-  --bg-primary: #0a0f1c;
-  --bg-secondary: #111827;
-  --accent: #22d3ee;
-  --highlight: #14b8a6;
-  --text-light: #f3f4f6;
-  --text-muted: #9ca3af;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.15);
+    --bg-primary: #0a0f1c; /* Deep Space Blue */
+    --bg-secondary: #111827; /* Darker Slate */
+    --accent: #22d3ee; /* Cyan/Aqua - High Visibility */
+    --highlight: #14b8a6; /* Teal - Secondary Accent */
+    --text-light: #f3f4f6;
+    --text-muted: #9ca3af;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    /* NEW: Box Shadow variables for depth */
+    --shadow-depth: 0 15px 35px rgba(0, 0, 0, 0.6);
+    --shadow-light: 0 0 15px rgba(34, 211, 238, 0.2); /* Soft accent glow */
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* Using 'Inter' is good, but adding a fallback for safety */
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-light);
-  overflow-x: hidden;
+    background-color: var(--bg-primary);
+    color: var(--text-light);
+    overflow-x: hidden;
+    /* Adding a subtle background texture/gradient for depth */
+    background: radial-gradient(circle at top left, rgba(20, 184, 166, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.08) 0%, transparent 30%),
+                var(--bg-primary);
+    min-height: 100vh;
 }
 
-/* === Preloader Animation === */
+/* === Preloader Animation (Improved Spin and Color) === */
 .preloader {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: var(--bg-primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Added a transition for smooth fade-out (requires JavaScript to remove/hide class) */
+    transition: opacity 0.5s ease-out;
 }
 
 .loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid var(--text-muted);
-  border-top: 6px solid var(--accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+    width: 70px; /* Slightly bigger */
+    height: 70px;
+    border: 6px solid var(--text-muted);
+    border-top: 6px solid var(--accent);
+    border-right: 6px solid var(--highlight); /* Two colors for a more complex look */
+    border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.5, 0.2, 0.5, 0.8) infinite; /* Changed animation timing for more interest */
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* === Hero Section === */
-.hero {
-  height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  padding: 20px;
-}
-
-.hero-content {
-  max-width: 800px;
-  animation: fadeInUp 1.2s ease-out both;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-}
-
-.hero .highlight {
-  color: var(--accent);
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px var(--accent); }
-  to { text-shadow: 0 0 20px var(--highlight); }
-}
-
-.typing {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-.explore-button {
-  background: var(--accent);
-  color: #000;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.explore-button:hover {
-  background: var(--highlight);
-  transform: scale(1.05);
-}
-
-/* === Navbar === */
+/* === Navbar (More prominent glass effect, improved interaction) === */
 .nav-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--bg-secondary);
-  z-index: 1000;
-  padding: 10px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  animation: slideDown 1s ease forwards;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Switched to glass for a premium, non-intrusive look */
+    background: rgba(17, 24, 39, 0.85); /* Slightly transparent secondary background */
+    backdrop-filter: blur(12px); /* Stronger blur for glass effect */
+    z-index: 1000;
+    padding: 12px 60px; /* More vertical padding, wider horizontal padding */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); /* Softer shadow */
+    transition: background 0.3s;
 }
 
-@keyframes slideDown {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(0); }
+/* Optional: Shrink/change background on scroll (requires JS to add a class) */
+.nav-scrolled {
+    padding: 8px 60px;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-depth);
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--accent);
+    font-size: 1.6rem; /* Bigger logo */
+    font-weight: 800; /* Bolder */
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--accent); /* Subtle glow */
+    letter-spacing: 1px;
 }
 
 .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Wider gap for better spacing */
 }
 
 .nav-links li a {
-  color: var(--text-light);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: background 0.3s;
+    color: var(--text-muted); /* Start with muted color */
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 10px 0; /* Vertical padding only */
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Underline Animation (More modern and less blocky) */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--highlight);
+    transition: width 0.4s ease-out;
 }
 
 .nav-links li a:hover {
-  background: var(--highlight);
-  color: #fff;
+    color: var(--text-light); /* Highlight text color */
+    text-shadow: 0 0 8px var(--highlight);
 }
 
-/* === Section Styles === */
+.nav-links li a:hover::after,
+.nav-links li a.active::after { /* Active class for current page */
+    width: 100%;
+}
+
+
+/* === Hero Section (More dramatic and cinematic) === */
+.hero {
+    height: 100vh;
+    /* Deeper, more complex gradient */
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #1e293b 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    /* Add a subtle dark overlay for better text contrast */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: fadeInUp 1.2s ease-out both;
+    position: relative;
+    z-index: 2; /* Ensure content is above any potential background elements */
+}
+
+.hero h1 {
+    font-size: 4.5rem; /* Larger and more impactful */
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.hero .highlight {
+    color: var(--accent);
+    animation: glow 3s ease-in-out infinite alternate; /* Slower, more impactful glow */
+    text-shadow: 0 0 15px var(--accent); /* Initial shadow for impact */
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); }
+    to { text-shadow: 0 0 15px var(--highlight), 0 0 30px var(--highlight); }
+}
+
+.typing {
+    font-size: 1.5rem; /* Larger font */
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    border-right: 2px solid var(--accent); /* Added a blinking cursor effect */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+/* You'll need to update the JavaScript to handle the typing text itself */
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent); }
+}
+
+.explore-button {
+    background: linear-gradient(45deg, var(--accent), var(--highlight)); /* Gradient for premium feel */
+    color: #000;
+    padding: 14px 30px; /* Bigger button */
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.5); /* Shadow for lift */
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.explore-button:hover {
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.7); /* Stronger shadow on hover */
+}
+
+/* Subtle ripple effect on hover */
+.explore-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: width 0.4s ease-out, height 0.4s ease-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.explore-button:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+
+/* === Section Styles (Enhanced Glassmorphism and Spacing) === */
 .glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 40px;
-  margin: 100px auto;
-  max-width: 960px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    /* Kept the basic glass properties */
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px); /* Stronger blur */
+    border: 1px solid var(--glass-border);
+    border-radius: 20px; /* Slightly rounder corners */
+    padding: 50px; /* More padding */
+    margin: 120px auto; /* More margin */
+    max-width: 1000px; /* Wider section */
+    box-shadow: var(--shadow-depth); /* Use depth shadow variable */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6), var(--shadow-light); /* Added accent glow on hover */
 }
 
 section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: var(--accent);
-  border-bottom: 2px solid var(--highlight);
-  padding-bottom: 8px;
+    font-size: 2.5rem; /* Bigger section titles */
+    margin-bottom: 25px;
+    color: var(--accent);
+    border-bottom: 3px solid var(--highlight); /* Thicker bottom border */
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
 }
 
+/* List Style (More modern marker) */
 ul {
-  padding-left: 20px;
-  line-height: 1.6;
+    padding-left: 0; /* Remove default list padding */
+    list-style: none;
+    line-height: 1.8;
 }
 
 ul li {
-  margin-bottom: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px; /* Space for custom marker */
 }
 
-/* === Resume Button === */
+/* Custom bullet point with accent color */
+ul li::before {
+    content: '▶'; /* Use a modern arrow or symbol */
+    position: absolute;
+    left: 0;
+    color: var(--highlight);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* General paragraph styles */
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* === Resume Button (Similar to Explore, but with a secondary accent) === */
 .resume-button {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: var(--accent);
-  color: #000;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
+    display: inline-block;
+    margin-top: 30px;
+    background: linear-gradient(45deg, var(--highlight), #149c9a); /* Gradient using secondary color */
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .resume-button:hover {
-  background-color: var(--highlight);
-  transform: scale(1.05);
+    background: linear-gradient(45deg, #149c9a, var(--highlight));
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.7);
 }
 
-/* === Footer === */
+/* === Footer (Slightly more defined) === */
 footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--text-muted);
-  background-color: #0c1220;
-  font-size: 0.9rem;
-  border-top: 1px solid #1e293b;
+    text-align: center;
+    padding: 60px 20px; /* More vertical space */
+    color: var(--text-muted);
+    background-color: var(--bg-secondary); /* Used secondary color for footer */
+    font-size: 1rem;
+    border-top: 1px solid var(--glass-border);
 }
 
-/* === Fade-in Animation === */
+/* === Fade-in Animation (Staggered and Smoother) === */
 .fade-in {
-  opacity: 0;
-  transform: translateY(60px);
-  animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px); /* Smaller initial offset */
+    animation: fadeInUp 0.8s ease-out forwards; /* Faster, smoother animation */
+    /* Add an optional data-delay attribute to HTML elements for staggered loading */
+    animation-delay: var(--animation-delay, 0s);
 }
 
 @keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(60px); }
-  60% { opacity: 0.5; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* === Media Queries for Responsiveness (Crucial for a professional look) === */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .typing {
+        font-size: 1.2rem;
+    }
+
+    .glass {
+        padding: 30px;
+        margin: 80px 20px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
 }
