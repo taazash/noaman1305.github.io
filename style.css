@@ -1,4 +1,4 @@
-/* === Variables and Base Styles (Hacking Console Theme - Adjusted for Purple) === */
+/* === Variables and Base Styles (Hacking Console Theme) === */
 :root {
     --bg-primary: #000000; /* Pure Black */
     --bg-secondary: #0a0a0a; /* Off Black */
@@ -16,7 +16,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: var(--font-mono); /* Applied Monospace font */
+    font-family: var(--font-mono); 
 }
 
 body {
@@ -120,15 +120,15 @@ body {
     position: relative;
     
     /* ---------------------------------------------------------------------- */
-    /* UPDATED: Purple Background Image aur Overlay */
+    /* UPDATED: Blue/Green Background Image URL */
     /* ---------------------------------------------------------------------- */
     background: 
-        /* Overlay: Darkens the image and adds a subtle purple tint */
-        linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(10, 0, 20, 0.6) 100%), 
+        /* Overlay: Darkens the image */
+        linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%), 
         /* Neon Grid Effect (Halki si roshni) */
         radial-gradient(circle at 10% 90%, rgba(0, 255, 65, 0.1) 0%, transparent 40%),
-        /* Aapka pasandida Purple Image URL */
-        url('http://googleusercontent.com/image_generation_content/0') center/cover;
+        /* Blue/Green Image URL - Chosen image */
+        url('http://googleusercontent.com/image_collection/image_retrieval/17023726559956901908_0') center/cover;
 }
 
 .hero-content {
