@@ -107,6 +107,16 @@ body {
     transform: translateY(-2px);
 }
 
+/* Remove arrows and fix alignment specifically for the Navbar */
+.nav-links li::before {
+    content: none; 
+}
+
+.nav-links li {
+    padding-left: 0; 
+    margin-bottom: 0; 
+}
+
 /* === Hero Section === */
 .hero {
     height: 100vh;
