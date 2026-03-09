@@ -1,21 +1,33 @@
 /*
 ===================================================================
-ULTIMATE CYBER PROTECTION THEME (LockHive Style)
+ENTERPRISE CYBER SECURITY THEME (Pro/Recruiter Optimized)
 Targeted Files: Cyber_bg.jpg, lock-with-background_113134-1317.jpg
 ===================================================================
 */
 
 /* === Variables and Base Styles === */
 :root {
-    --bg-primary: #0a001a; /* Very Deep Purple/Black */
-    --bg-secondary: #1a082c; /* Slightly Lighter Purple */
-    --accent: #ff00ff; /* Bright Neon Magenta/Pink */
-    --highlight: #8a2be2; /* Blue-Violet/Electric Purple */
-    --text-light: #f4f4f6;
-    --text-muted: #c0c0d0;
-    --shadow-neon: 0 0 15px var(--accent), 0 0 30px rgba(255, 0, 255, 0.4); 
-    --shadow-deep: 0 10px 40px rgba(0, 0, 0, 0.8);
-    --font-sans: 'Inter', sans-serif; 
+    /* Sophisticated Dark Slate/Navy palette instead of deep purple */
+    --bg-primary: #0b0f19; 
+    --bg-secondary: #131a2a; 
+    --bg-card: rgba(19, 26, 42, 0.7);
+    
+    /* Professional Tech Accents */
+    --accent: #00e5ff; /* Electric Cyan */
+    --accent-hover: #00b3cc;
+    --highlight: #3b82f6; /* Trustworthy Tech Blue */
+    
+    /* High contrast, readable text */
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    
+    /* Refined shadows */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 0 15px rgba(0, 229, 255, 0.15);
+    
+    /* Typography */
+    --font-sans: 'Inter', system-ui, sans-serif; 
+    --font-mono: 'Fira Code', 'Courier New', monospace; /* Added for technical accents */
 }
 
 * {
@@ -23,25 +35,24 @@ Targeted Files: Cyber_bg.jpg, lock-with-background_113134-1317.jpg
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: var(--font-sans); 
 }
 
 body {
     background-color: var(--bg-primary);
     color: var(--text-light);
     overflow-x: hidden;
-    background: radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.08) 0%, transparent 40%),
-                var(--bg-primary);
-    background-image: none;
+    font-family: var(--font-sans); 
+    /* Subtle dot-matrix or grid illusion using gradients */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
-/* === Preloader Animation === */
+/* === Preloader Animation (Sleek & Fast) === */
 .preloader {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,281 +60,289 @@ body {
 }
 
 .loader {
-    width: 80px; 
-    height: 80px;
-    border: 8px solid var(--text-muted);
-    border-top: 8px solid var(--highlight);
-    border-right: 8px solid var(--accent);
+    width: 50px; 
+    height: 50px;
+    border: 3px solid rgba(148, 163, 184, 0.1);
+    border-top: 3px solid var(--accent);
     border-radius: 50%;
-    animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; 
+    animation: smoothSpin 1s linear infinite; 
 }
 
-@keyframes spin {
+@keyframes smoothSpin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* === Navbar (Sleek and Subdued) === */
+/* === Navbar (Sleek Glassmorphism) === */
 .nav-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(10, 0, 26, 0.95);
-    backdrop-filter: blur(5px);
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
-    padding: 15px 60px;
+    padding: 15px 5%; /* Percentage for better scaling */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
-    border-bottom: 1px solid rgba(255, 0, 255, 0.2); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 900;
+    font-size: 1.5rem;
+    font-weight: 800;
     color: var(--text-light);
-    letter-spacing: 0px; 
+    letter-spacing: -0.5px; 
 }
 
 .logo .subtle-glow {
     color: var(--accent);
-    text-shadow: 0 0 8px var(--accent);
+    /* Removed heavy text-shadow for a cleaner look */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links li a {
     color: var(--text-muted);
     text-decoration: none;
+    font-size: 0.9rem;
     font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    transition: color 0.3s;
+    transition: color 0.2s ease;
 }
 
 .nav-links li a:hover {
-    color: var(--accent);
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    color: var(--text-light);
 }
 
-/* === Hero Section (The Dramatic Focus) === */
+/* === Hero Section (Professional Focus) === */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    text-align: left; 
-    padding: 0 80px; 
+    padding: 0 5%; 
     position: relative;
     
-    /* === HERO BACKGROUND: Cyber_bg.jpg === */
+    /* === HERO BACKGROUND === */
     background: 
-        /* Overlay: Darkens the image */
-        linear-gradient(rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 100%), 
-        /* Neon Glow */
-        radial-gradient(circle at 10% 90%, rgba(255, 0, 255, 0.1) 0%, transparent 40%),
-        /* **LOCAL PATH:** Cyber_bg.jpg */
+        /* Stronger, more neutral dark overlay to ensure text is perfectly readable */
+        linear-gradient(to right, rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.7) 100%), 
         url('Cyber_bg.jpg') center/cover;
-    
     overflow: hidden; 
 }
 
 .hero-content {
-    max-width: 550px; 
+    max-width: 600px; 
     z-index: 10;
-    animation: slideInUp 1.2s ease forwards;
+    animation: fadeUp 1s ease-out forwards;
 }
 
-@keyframes slideInUp {
-    0% { opacity: 0; transform: translateY(50px); }
-    100% { transform: translateY(0); }
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .hero .pre-heading {
-    font-size: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 15px;
-    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(0, 229, 255, 0.1);
+    border-radius: 4px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 25px;
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive fluid typography */
+    margin-bottom: 20px;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.1;
     color: var(--text-light);
+    letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-muted);
     margin-bottom: 40px;
+    max-width: 90%;
 }
 
 .explore-button {
-    background: linear-gradient(90deg, #ff00ff, #8a2be2); 
-    color: var(--text-light);
-    padding: 15px 35px;
-    border-radius: 8px; 
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 8px 30px rgba(255, 0, 255, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: none;
+    background: var(--accent); 
+    color: var(--bg-primary);
+    padding: 14px 32px;
+    border-radius: 6px; 
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    border: 1px solid var(--accent);
+    cursor: pointer;
 }
 
 .explore-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(138, 43, 226, 0.7);
+    background: transparent;
+    color: var(--accent);
+    box-shadow: var(--shadow-glow);
 }
 
 /* === Floating 3D Lock Visual === */
 .lock-visual {
     position: absolute;
-    right: 15%;
+    right: 10%;
     top: 50%;
     transform: translateY(-50%);
     z-index: 5;
-    width: 350px; 
-    height: 350px;
-    
-    /* === 3D LOCK IMAGE SETTINGS: lock-with-background_113134-1317.jpg === */
-    /* **LOCAL PATH:** lock-with-background_113134-1317.jpg */
+    width: 380px; 
+    height: 380px;
     background-image: url('lock-with-background_113134-1317.jpg'); 
-    
     background-size: contain;
     background-repeat: no-repeat;
-    /* Since this is a JPG, the background might not be fully transparent, 
-       but we keep the opacity low for the neon effect. */
-    opacity: 0.9; 
-    animation: float 5s ease-in-out infinite alternate;
+    /* Blend mode helps integrate non-transparent JPGs into dark backgrounds */
+    mix-blend-mode: screen; 
+    opacity: 0.7; 
+    animation: gentleFloat 6s ease-in-out infinite alternate;
 }
 
-@keyframes float {
+@keyframes gentleFloat {
     0% { transform: translateY(-50%) translateY(0px); }
-    100% { transform: translateY(-50%) translateY(-15px); }
+    100% { transform: translateY(-50%) translateY(-20px); }
 }
 
-/* === Side Stats Box (60 Hours) === */
+/* === Side Stats Box (Dashboard Style) === */
 .stats-box {
     position: absolute;
     right: 5%;
-    bottom: 10%;
-    width: 200px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05); 
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+    bottom: 15%;
+    width: auto;
+    min-width: 180px;
+    padding: 20px 25px;
+    background: var(--bg-card); 
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
     z-index: 10;
-    text-align: center;
+    text-align: left; /* Looks more like a data widget */
+    border-left: 3px solid var(--accent);
 }
 
 .stats-box .number {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--accent);
-    text-shadow: 0 0 10px var(--accent);
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-light);
     line-height: 1;
 }
 
 .stats-box .label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-top: 5px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* === General Section Styles (Clean Blocks) === */
+/* === General Section Styles (Clean Data Blocks) === */
 section {
-    padding: 100px 60px;
+    padding: 100px 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .data-block {
     background-color: var(--bg-secondary);
-    border-radius: 16px;
-    padding: 50px;
+    border-radius: 12px;
+    padding: 40px;
     margin: 40px auto;
-    box-shadow: var(--shadow-deep);
-    border-top: 2px solid var(--highlight);
-    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s, border-color 0.2s;
 }
 
 .data-block:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), 0 0 15px var(--accent);
+    transform: translateY(-2px);
+    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow: var(--shadow-soft);
 }
 
 section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 25px;
     color: var(--text-light);
-    border-bottom: 3px solid var(--accent);
-    padding-bottom: 10px;
-    text-transform: capitalize;
     font-weight: 700;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Subtle line next to headings instead of a full underline */
+section h2::after {
+    content: '';
+    height: 1px;
+    flex-grow: 1;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
 }
 
 p {
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 20px;
 }
 
-/* List/Points Style */
+/* List/Points Style - Professional */
 ul {
     list-style: none;
     padding-left: 0;
 }
 
 ul li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: var(--text-muted);
     position: relative;
-    padding-left: 30px;
+    padding-left: 25px;
+    line-height: 1.6;
 }
 
 ul li::before {
-    content: '★'; 
+    content: '›'; 
     position: absolute;
     left: 0;
-    color: var(--highlight);
+    top: -2px;
+    color: var(--accent);
     font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--font-mono);
 }
 
 /* === Resume Button === */
 .resume-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 20px;
-    background-color: var(--highlight);
+    background-color: transparent;
     color: var(--text-light);
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 6px;
     text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: 1px solid var(--highlight);
-    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
 }
 
 .resume-button:hover {
-    background-color: transparent;
-    color: var(--highlight);
-    box-shadow: 0 0 15px var(--highlight);
-    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-light);
 }
 
 /* === Footer === */
@@ -331,28 +350,34 @@ footer {
     text-align: center;
     padding: 40px 20px;
     color: var(--text-muted);
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     font-size: 0.9rem;
-    border-top: 1px solid var(--highlight);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* === Media Queries for Responsiveness === */
 @media (max-width: 992px) {
     .hero {
-        padding: 40px 30px;
         justify-content: center;
         text-align: center;
+        padding-top: 80px; /* Account for navbar */
     }
     .hero-content {
         max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero p {
+        margin: 0 auto 30px auto;
     }
     .lock-visual, .stats-box {
-        display: none; /* Hide complex visuals on mobile */
+        display: none; 
     }
-    .hero h1 {
-        font-size: 2.8rem;
+    .nav-links {
+        display: none; /* Consider adding a hamburger menu in HTML for mobile */
     }
-    section {
-        padding: 60px 20px;
+    .data-block {
+        padding: 30px 20px;
     }
 }
